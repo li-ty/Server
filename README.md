@@ -1,6 +1,6 @@
 # Note for JavaScript
 # ECMAScript® 2018 Language Specification https://www.ecma-international.org/ecma-262/
-# ECMAScript Language's Chinese Specification http://es6.ruanyifeng.com/
+# ECMAScript Language's Chinese Specification http://es6.ruanyifeng.com/ or https://www.liaoxuefeng.com/
 
 ECMAScript Standard Built-in Objects:
 18 The Global Object ( https://www.ecma-international.org/ecma-262/)
