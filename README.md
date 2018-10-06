@@ -12,3 +12,19 @@ ECMAScript Standard Built-in Objects:
 Browser Build-in Objects and Methods:
 Document,Element,Event,EventListener,History,Image,Location,Navigator,Node,Option,Position,Screen,Storage,Text,WebSocket,Window,XMLHttpRequest,Console...
 end(),start()
+
+Node.js是基于模块化的方式对代码进行组织和管理，采用的模块化标准是Commonjs，like this,
+  //mian.js
+function (exports, require, module, __filename, __dirname) { 
+    console.log(arguments.callee.toString());
+    console.log(__dirname);
+    function f() {
+        console.log("文件定义的函数");
+    }
+    f();
+
+}
+
+function (exports, require, module, __filename, __dirname) { 
+   //用户编辑的代码
+}
