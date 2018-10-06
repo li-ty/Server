@@ -13,18 +13,16 @@ Browser Build-in Objects and Methods:
 Document,Element,Event,EventListener,History,Image,Location,Navigator,Node,Option,Position,Screen,Storage,Text,WebSocket,Window,XMLHttpRequest,Console...
 end(),start()
 
+#Node.js模块化
 Node.js是基于模块化的方式对代码进行组织和管理，采用的模块化标准是Commonjs，like this,
   //mian.js
 function (exports, require, module, __filename, __dirname) { 
     console.log(arguments.callee.toString());
     console.log(__dirname);
-    function f() {
-        console.log("文件定义的函数");
-    }
-    f();
+    function f() {                       //node.js文件中所有的变量和函数都是局部的。
+        console.log("文件定义的函数");    //exports：对外暴露变量或者函数
+    }                                    //require：引入其他模块
+    f();                                 //module：暴露对象  module.exports是真正的暴露对象，exports只是这个真正暴露对象的引用。
 
 }
 
-function (exports, require, module, __filename, __dirname) { 
-   //用户编辑的代码
-}
