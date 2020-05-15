@@ -6,3 +6,6 @@
 https://study.163.com/curricula/cs.htm
 
 https://www.jqhtml.com/55160.html
+
+
+mysql主从复制中的1032错误https://cloud.tencent.com/developer/article/1495434
