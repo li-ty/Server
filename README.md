@@ -13,9 +13,9 @@ netstat -ano
 ```
 ### 查特定端口：
 ```cmd
-netstat -ano |findstr "端口号"  
+netstat -ano |findstr "端口号"
 ```
 ### 杀死进程：
 ``` cmd
-taskkill /f /t /im "进程id或者进程名称"  
+taskkill /f /t /im "进程id或者进程名称"
 ```
