@@ -1,4 +1,4 @@
-
+RS6[ES6](http://es6.ruanyifeng.com/)
 # ECMAScript Language's Chinese Specification http://es6.ruanyifeng.com/ or https://www.liaoxuefeng.com/
 顶尖中文大学计算机专业课程体系https://study.163.com/curricula/cs.htm  
 https://www.jqhtml.com/55160.html  
