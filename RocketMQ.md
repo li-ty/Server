@@ -1,4 +1,4 @@
-# Windows环境下安装RocketMQ  
+# Windows环境下安装RocketMQ  （node操作RocketMQ依赖繁琐，观望）
 ## 环境  
 JDK1.8、Maven、Git
 ## 地址：http://rocketmq.apache.org
