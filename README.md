@@ -1,13 +1,14 @@
 
-# 精品课程
+# 精品教程
 - [顶尖中文大学计算机专业课程体系](https://study.163.com/curricula/cs.htm) 
-[leetcode-cn](https://leetcode-cn.com)  
-[leetcode](https://leetcode.com)
-
-# [ES6](http://es6.ruanyifeng.com/)
-mysql主从复制中的1032错误https://cloud.tencent.com/developer/article/1495434  
-数据库连接查询https://www.jqhtml.com/55160.html  
-buffer和stream的区别：https://segmentfault.com/a/1190000020129087
+- [阮一峰ES6](http://es6.ruanyifeng.com/)
+# 刷题网站
+- [leetcode-cn](https://leetcode-cn.com)  
+- [leetcode](https://leetcode.com)
+# 技术贴
+- mysql主从复制中的1032错误https://cloud.tencent.com/developer/article/1495434  
+- 数据库连接查询https://www.jqhtml.com/55160.html  
+- buffer和stream的区别：https://segmentfault.com/a/1190000020129087
 
 
 # Windows常用命令行命令
