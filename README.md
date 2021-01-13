@@ -11,7 +11,13 @@
 - buffer和stream的区别：https://segmentfault.com/a/1190000020129087
 
 
-# Windows常用命令行命令
+# 常用命令行
+## Windows
+| 命令 | 用法 |
+| :-----: | :----: |
+| netstat -ano | 查看全部端口占用 |
+| netstat -ano |findstr "端口号" | 查特定端口 |
+| taskkill /f /t /im "进程id或者进程名称" | 杀死进程 |
 ### 查看全部端口占用：
 ```cmd
 netstat -ano
