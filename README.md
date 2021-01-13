@@ -1,5 +1,6 @@
 
-# [顶尖中文大学计算机专业课程体系](https://study.163.com/curricula/cs.htm) 
+# 精品课程
+- [顶尖中文大学计算机专业课程体系](https://study.163.com/curricula/cs.htm) 
 [leetcode-cn](https://leetcode-cn.com)  
 [leetcode](https://leetcode.com)
 
