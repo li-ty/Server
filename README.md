@@ -23,6 +23,7 @@
 - mysql主从复制中的1032错误https://cloud.tencent.com/developer/article/1495434  
 - 数据库连接查询https://www.jqhtml.com/55160.html  
 - buffer和stream的区别：https://segmentfault.com/a/1190000020129087
+- sqlite数据库入门教程：https://cloud.tencent.com/developer/article/1596923
 
 ## 资源站
 - [亦是美网络](http://www.yishimei.cn/)
