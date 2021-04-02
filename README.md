@@ -6,8 +6,6 @@
 - [leetcode-cn](https://leetcode-cn.com)  
 - [leetcode](https://leetcode.com)
 
-### suidao.io AccessKey:ac8b3cf8a00846478fb1fb7e38dd7e0e
-
 ## 常用命令行
 ### Windows
 | 命令 | 用法 |
