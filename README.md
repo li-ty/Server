@@ -29,4 +29,4 @@
 - [亦是美网络](http://www.yishimei.cn/)
 
 
-![图片](https://raw.githubusercontent.com/li-ty/Note/master/image/0.jpg)
+![图片](https://raw.githubusercontent.com/li-ty/Note/site.png)
