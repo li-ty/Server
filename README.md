@@ -29,6 +29,5 @@
 - [亦是美网络](http://www.yishimei.cn/)
 
 
-![图片](https://github.com/li-ty/Note/blob/master/site.png)
 
 ![图片](https://github.com/li-ty/Note/blob/master/Images/0.png)
