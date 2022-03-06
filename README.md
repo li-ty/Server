@@ -1,10 +1,8 @@
-- [leetcode-cn](https://leetcode-cn.com)
-## 精品教程
-- [顶尖中文大学计算机专业课程体系](https://study.163.com/curricula/cs.htm)    [阮一峰ES6](http://es6.ruanyifeng.com/)
+- [leetcode-cn](https://leetcode-cn.com)    [计算机课程](https://study.163.com/curricula/cs.htm)
+### 论坛
+- [云+社区](https://cloud.tencent.com/developer)    [segmentfault](https://segmentfault.com/)    [StackOverflow](https://stackoverflow.com/)    [CSDN](https://www.csdn.net/)
+- [阮一峰ES6](http://es6.ruanyifeng.com/)
  
-## 刷题网站
-
-
 ## 常用命令行
 ### Windows
 | 命令 | 用法 |
