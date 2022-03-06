@@ -1,6 +1,6 @@
-- [leetcode-cn](https://leetcode-cn.com)    [计算机课程](https://study.163.com/curricula/cs.htm)
+- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)
 ### 论坛：
-- [云+社区](https://cloud.tencent.com/developer)  [OSCHINA](https://www.oschina.net/)  [segmentfault](https://segmentfault.com/)  [CSDN](https://www.csdn.net/)  [StackOverflow](https://stackoverflow.com/)    
+- [云+社区](https://cloud.tencent.com/developer)&nbsp;&nbsp;[OSCHINA](https://www.oschina.net/)&nbsp;&nbsp;[segmentfault](https://segmentfault.com/)&nbsp;&nbsp;[CSDN](https://www.csdn.net/)&nbsp;&nbsp;[StackOverflow](https://stackoverflow.com/)    
 - [阮一峰ES6](http://es6.ruanyifeng.com/)
  
 ## 常用命令行
