@@ -1,9 +1,9 @@
-
+- [leetcode-cn](https://leetcode-cn.com)
 ## 精品教程
 - [顶尖中文大学计算机专业课程体系](https://study.163.com/curricula/cs.htm)    [阮一峰ES6](http://es6.ruanyifeng.com/)
  
 ## 刷题网站
-- [leetcode-cn](https://leetcode-cn.com)  [leetcode](https://leetcode.com)
+
 
 ## 常用命令行
 ### Windows
