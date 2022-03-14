@@ -20,7 +20,7 @@
 - 数据库连接查询https://www.jqhtml.com/55160.html  
 - buffer和stream的区别：https://segmentfault.com/a/1190000020129087
 - sqlite数据库入门教程：https://cloud.tencent.com/developer/article/1596923
-
+- Navicat无限试用：https://github.com/Abeautifulsnow/navicat-premium-crack/
 
 
 ![image](https://user-images.githubusercontent.com/26899221/157687850-d1ca2805-103d-4879-8f68-4dd4f8d64f87.png)
