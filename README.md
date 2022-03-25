@@ -22,4 +22,3 @@
 - sqlite数据库入门教程：https://cloud.tencent.com/developer/article/1596923
 - Navicat无限试用：https://github.com/Abeautifulsnow/navicat-premium-crack/
 
-![image](https://user-images.githubusercontent.com/26899221/158088884-28646a08-3efb-4382-ab1b-aecff55eeca1.png)
