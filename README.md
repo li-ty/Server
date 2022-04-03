@@ -17,8 +17,8 @@
 
 ### 技术贴
 - mysql主从复制中的1032错误https://cloud.tencent.com/developer/article/1495434  
-- 数据库连接查询https://www.jqhtml.com/55160.html  
 - buffer和stream的区别：https://segmentfault.com/a/1190000020129087
 - sqlite数据库入门教程：https://cloud.tencent.com/developer/article/1596923
 - Navicat无限试用：https://github.com/Abeautifulsnow/navicat-premium-crack/
 - 右键启动web服务器运行静态html文件的VSCode插件：https://github.com/ritwickdey/vscode-live-server
+- 一秒用VSCode风格web IDE打开github仓库代码：https://github.com/conwnet/github1s
