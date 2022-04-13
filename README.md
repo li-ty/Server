@@ -1,5 +1,5 @@
 - [devdocs.io](https://devdocs.io/)&nbsp;&nbsp;[MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[ES6](http://es6.ruanyifeng.com/)
-- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)
+- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)&nbsp;&nbsp;[emmet](https://github.com/emmetio/emmet)
 ### 论坛：
 - [云+社区](https://cloud.tencent.com/developer)&nbsp;&nbsp;[OSChina](https://www.oschina.net/)&nbsp;&nbsp;[SegmentFault](https://segmentfault.com/)&nbsp;&nbsp;[CSDN](https://www.csdn.net/)&nbsp;&nbsp;[StackOverflow](https://stackoverflow.com/)    
  
