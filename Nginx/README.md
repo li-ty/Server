@@ -247,7 +247,7 @@ upstream httpds {
   server 192.168.44.104:8080 weight=1 backup;
 }
 location / {
-  rewrite ^/([0-9]+).html$ /index.jsp?pageNum=$1 redirect;
+  rewrite ^/([0-9]+).html$    /index.jsp?pageNum=$1    redirect;
   proxy_pass http://httpds ;
 }
 ```
