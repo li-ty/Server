@@ -247,3 +247,26 @@ location / {
   proxy_pass http://httpds ;
 }
 ```
+## 防盗链配置
+```
+valid_referers none | blocked | server_names | strings ....;
+```
+- none， 检测 Referer 头域不存在的情况。
+- blocked，检测 Referer 头域的值被防火墙或者代理服务器删除或伪装的情况。这种情况该头域的值不以“http://” 或 “https://” 开头。
+- server_names ，设置一个或多个 URL ，检测 Referer 头域的值是否是这些 URL 中的某一个。  
+
+在需要防盗链的location中配置
+```
+valid_referers 192.168.44.101;
+if ($invalid_referer) {
+  return 403;
+}
+```
+### 使用curl测试
+```
+curl -I http://192.168.44.101/img/logo.png
+```
+### 带引用
+```
+curl -e "http://baidu.com" -I http://192.168.44.101/img/logo.png
+```
