@@ -345,3 +345,16 @@ vrrp_instance atguigu {
 ```
 systemctl start keepalived
 ```
+# Https证书配置
+## 不安全的http协议
+![image](https://user-images.githubusercontent.com/26899221/164888127-37f08a9a-8282-4f83-b60e-ae985d5ea533.png)
+### openssl
+openssl包含：SSL协议库、应用程序以及密码算法库
+## 自签名
+### OpenSSL
+系统内置
+### 图形化工具 XCA
+下载地址
+```
+https://www.hohnstaedt.de/xca/index.php/download
+```
