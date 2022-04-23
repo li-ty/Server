@@ -182,4 +182,68 @@ alias标签的目录块中不能使用rewrite的break（具体原因不明）；
 号！！ 4）alias虚拟目录配置中，location匹配的path目录如果后面不带"/"，那么访问的url地址中这个path目录后
 面加不加"/"不影响访问，访问时它会自动加上"/"； 但是如果location匹配的path目录后面加上"/"，那么访问的url地
 址中这个path目录必须要加上"/"，访问时它不会自动加上"/"。如果不加上"/"，访问就会失败！ 5）root目录配置
-中，location匹配的path目录后面带不带"/"，都不会影响访问。
+中，location匹配的path目录后面带不带"/"，都不会影响访问。  
+
+## UrlRewrite
+### rewrite语法格式及参数语法:
+```
+rewrite是实现URL重写的关键指令，根据regex (正则表达式)部分内容，
+重定向到replacement，结尾是flag标记。
+rewrite <regex> <replacement> [flag];
+关键字 正则 替代内容 flag标记
+关键字：其中关键字error_log不能改变
+正则：perl兼容正则表达式语句进行规则匹配
+替代内容：将正则匹配的内容替换成replacement
+flag标记：rewrite支持的flag标记
+rewrite参数的标签段位置：
+server,location,if
+flag标记说明：
+last #本条规则匹配完成后，继续向下匹配新的location URI规则
+break #本条规则匹配完成即终止，不再匹配后面的任何规则
+redirect #返回302临时重定向，浏览器地址会显示跳转后的URL地址
+permanent #返回301永久重定向，浏览器地址栏会显示跳转后的URL地址
+```
+实例
+```
+rewrite ^/([0-9]+).html$ /index.jsp?pageNum=$1 break;
+```
+### 同时使用负载均衡
+#### 应用服务器防火墙配置
+#### 开启防火墙
+```
+systemctl start firewalld
+```
+#### 重启防火墙
+```
+systemctl restart firewalld
+```
+#### 重载规则
+```
+firewall-cmd --reload
+```
+#### 查看已配置规则
+```
+firewall-cmd --list-all
+```
+#### 指定端口和ip访问
+```
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.44.101"
+port protocol="tcp" port="8080" accept"
+```
+#### 移除规则
+```
+firewall-cmd --permanent --remove-rich-rule="rule family="ipv4" source
+address="192.168.44.101" port port="8080" protocol="tcp" accept"
+```
+#### 网关配置
+```
+upstream httpds {
+  server 192.168.44.102 weight=8 down;
+  server 192.168.44.103:8080 weight=2;
+  server 192.168.44.104:8080 weight=1 backup;
+}
+location / {
+  rewrite ^/([0-9]+).html$ /index.jsp?pageNum=$1 redirect;
+  proxy_pass http://httpds ;
+}
+```
