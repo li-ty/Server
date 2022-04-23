@@ -15,7 +15,7 @@ nginx的主程序
 # 基本运行原理
 ![image](https://user-images.githubusercontent.com/26899221/164879588-1c66c75e-ffa4-44e8-b99f-b5308ee41a44.png)
 
-# Nginx配置与应用场景
+# Nginx配置与应用场景（CentOS 7.6）
 ## 最小配置
 worker_processes  
 
