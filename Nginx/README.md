@@ -1,14 +1,46 @@
 ![image](https://user-images.githubusercontent.com/26899221/164879440-a756e791-ccda-4302-8d9e-6693866d6d11.png)
 # 目录结构
-conf  
+## conf  
 
 用来存放配置文件相关  
 
-html  
+## html  
 
 用来存放静态文件的默认目录 html、css等  
 
-sbin  
+## sbin  
 
 nginx的主程序  
+
+# 基本运行原理
+![image](https://user-images.githubusercontent.com/26899221/164879588-1c66c75e-ffa4-44e8-b99f-b5308ee41a44.png)
+
+# Nginx配置与应用场景
+## 最小配置
+worker_processes  
+
+worker_processes 1; 默认为1，表示开启一个业务进程  
+
+worker_connections  
+
+worker_connections 1024; 单个业务进程可接受连接数  
+
+include mime.types;  
+
+include mime.types; 引入http mime类型  
+
+default_type application/octet-stream;  
+
+default_type application/octet-stream; 如果mime类型没匹配上，默认使用二进制流的方式传输。  
+
+sendfile on;  
+
+sendfile on; 使用linux的 sendfile(socket, file, len) 高效网络传输，也就是数据0拷贝。  
+
+未开启sendfile  
+![image](https://user-images.githubusercontent.com/26899221/164879677-ec99e5d9-a6ff-4a41-992d-759122541f99.png)
+开启后
+![image](https://user-images.githubusercontent.com/26899221/164879781-5bcb4799-64c4-4c34-9860-7436e7df6b8e.png)
+
+
 
