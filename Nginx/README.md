@@ -270,3 +270,78 @@ curl -I http://192.168.44.101/img/logo.png
 ```
 curl -e "http://baidu.com" -I http://192.168.44.101/img/logo.png
 ```
+# 高可用配置
+## 安装Keepalived
+### 编译安装
+下载地址
+```
+https://www.keepalived.org/download.html#
+```
+使用 ./configure 编译安装  
+
+如遇报错提示
+```
+configure: error:
+!!! OpenSSL is not properly installed on your system. !!!
+!!! Can not include OpenSSL headers files. !!!
+```
+安装依赖
+```
+yum install openssl-devel
+```
+### yum安装
+```
+yum install keepalived
+```
+## 配置
+使用yum安装后配置文件在
+```
+/etc/keepalived/keepalived.conf
+```
+### 最小配置
+第一台机器
+```
+! Configuration File for keepalived
+global_defs {
+  router_id lb111
+}
+vrrp_instance atguigu {
+  state MASTER
+  interface ens33
+  virtual_router_id 51
+  priority 100
+  advert_int 1
+  authentication {
+    auth_type PASS
+    auth_pass 1111
+  }
+  virtual_ipaddress {
+    192.168.44.200
+  }
+}
+```
+第二台机器
+```
+! Configuration File for keepalived
+global_defs {
+`router_id lb110
+}
+vrrp_instance atguigu {
+  state BACKUP
+  interface ens33
+  virtual_router_id 51
+  priority 50
+  advert_int 1
+  authentication {
+    auth_type PASS
+    auth_pass 1111
+  }
+  virtual_ipaddress {
+    192.168.44.200
+  }
+}
+```
+启动服务
+```
+systemctl start keepalived
+```
