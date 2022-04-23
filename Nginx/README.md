@@ -45,4 +45,19 @@ sendfile on; 使用linux的 sendfile(socket, file, len) 高效网络传输，也
 server
 ![image](https://user-images.githubusercontent.com/26899221/164882147-a18ecd59-c2f7-4250-92bc-a1379d636643.png)
 
+虚拟主机配置  
+```
+server {
+  listen 80; 监听端口号
+  server_name localhost; 主机名
+  location / { 匹配路径
+    root html; 文件根目录
+    index index.html index.htm; 默认页名称
+  }
+  error_page 500 502 503 504 /50x.html; 报错编码对应页面
+  location = /50x.html {
+    root html;
+  }
+}
+```
 
