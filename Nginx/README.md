@@ -42,6 +42,10 @@ sendfile on; 使用linux的 sendfile(socket, file, len) 高效网络传输，也
 开启后
 ![image](https://user-images.githubusercontent.com/26899221/164879781-5bcb4799-64c4-4c34-9860-7436e7df6b8e.png)
 
+keepalive_timeout 65;  
+
+keepalive_timeout 65;
+
 server
 ![image](https://user-images.githubusercontent.com/26899221/164882147-a18ecd59-c2f7-4250-92bc-a1379d636643.png)
 
