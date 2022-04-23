@@ -82,3 +82,40 @@ server_name vod.*;
 ```
 server_name ~^[0-9]+\.mmban\.com$;
 ```
+# 反向代理
+proxy_pass http://baidu.com;
+```
+location / {
+  proxy_pass http://atguigu.com/;
+}
+```
+# 基于反向代理的负载均衡
+```
+upstream httpd {
+  server 192.168.44.102:80;
+  server 192.168.43.103:80;
+}
+```
+## 负载均衡策略
+### 轮询
+默认情况下使用轮询方式，逐一转发，这种方式适用于无状态请求。
+### weight(权重)
+指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。
+```
+upstream httpd {
+  server 127.0.0.1:8050 weight=10 down;
+  server 127.0.0.1:8060 weight=1;
+  server 127.0.0.1:8060 weight=1 backup;
+}
+```
+- down：表示当前的server暂时不参与负载
+- weight：默认为1.weight越大，负载的权重就越大。
+- backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。
+### ip_hash
+根据客户端的ip地址转发同一台服务器，可以保持回话。
+### least_conn
+最少连接访问
+### url_hash
+根据用户访问的url定向转发请求
+### fair
+根据后端服务器响应时间转发请求
