@@ -19,7 +19,6 @@
 - buffer和stream的区别：https://segmentfault.com/a/1190000020129087
 - Navicat无限试用：https://github.com/Abeautifulsnow/navicat-premium-crack/
 - 右键启动web服务器运行静态html文件的VSCode插件：https://github.com/ritwickdey/vscode-live-server
-- 一秒用VSCode风格web IDE打开github仓库代码：https://github.com/conwnet/github1s
 - AI代码自动生成VSCode插件github copilot：https://copilot.github.com/
 - 发送GET/POST等请求VSCode插件Rest Client：https://github.com/Huachao/vscode-restclient
 
