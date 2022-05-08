@@ -21,7 +21,8 @@
 - 右键启动web服务器运行静态html文件的VSCode插件：https://github.com/ritwickdey/vscode-live-server
 - AI代码自动生成VSCode插件github copilot：https://copilot.github.com/
 - 发送GET/POST等请求VSCode插件Rest Client：https://github.com/Huachao/vscode-restclient
+- 一键运行选中代码插件Code Runner：https://github.com/formulahendry/vscode-code-runner
 
 
 ### tips
-github仓库按。键调出在线VSCode！！！
+- github仓库按。键调出在线VSCode！！！
