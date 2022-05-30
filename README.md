@@ -1,7 +1,5 @@
 - [devdocs.io](https://devdocs.io/)&nbsp;&nbsp;[MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[ES6](http://es6.ruanyifeng.com/)
-- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)&nbsp;&nbsp;[emmet](https://github.com/emmetio/emmet)
-### 论坛：
-- [云+社区](https://cloud.tencent.com/developer)&nbsp;&nbsp;[OSChina](https://www.oschina.net/)&nbsp;&nbsp;[SegmentFault](https://segmentfault.com/)&nbsp;&nbsp;[CSDN](https://www.csdn.net/)&nbsp;&nbsp;[StackOverflow](https://stackoverflow.com/)    
+- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)&nbsp;&nbsp;[emmet](https://github.com/emmetio/emmet) 
  
 ### Windows命令
 | 命令 | 用法 |
@@ -22,7 +20,3 @@
 - AI代码自动生成VSCode插件github copilot：https://copilot.github.com/
 - 发送GET/POST等请求VSCode插件Rest Client：https://github.com/Huachao/vscode-restclient
 - 一键运行选中代码插件Code Runner：https://github.com/formulahendry/vscode-code-runner
-
-
-### tips
-- github仓库按。键调出在线VSCode！！！
