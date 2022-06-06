@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归算法</title>
+</head>
+<body>
+    <script>
+        // 1. 假设递归函数已经写好。
+        // 2. 寻找递推关系。
+        // 3. 将递推关系的结构转换为递归体。
+        // 4. 将临界条件加入到递归体中。
+                                        // 7+6+5+4+3+2+1
+        //1-100的和  1.sum(7); 2. sum(6) == sum(n-1) + n;
+        // function sum(n){
+        //     if(n == 1) return 1;
+        //     return sum(n-1)+n;
+        // }
+        // console.log(sum(100));
+        //求1,3,5,7,9,奇数的和 sum(50) 
+        // function sum(n){
+        //     if(n%2 == 0){
+        //         n--;
+        //     }
+        //     if(n == 1){
+        //         return 1;
+        //     }else{
+        //         return n+sum(n-2);
+        //     }
+        // }
+        // console.log(sum(50));
+        //求菲波那切数列
+        // function fib(n){
+        //     if(n == 0 || n ==1) return 1;
+        //     return fib(n-1) + fib(n-2);
+        // }
+        // console.log(fib(10));
+        //阶乘
+        // function foo(n){
+        //     if(n == 1) return 1;
+        //     return foo(n-1)*n;
+        // }
+        // console.log(foo(10));
+        //求n的m次方 
+        // function power(n,m){
+        //     if(m == 1) return n;
+        //     return power(n,m-1) *n;
+        // }
+        // console.log(power(3,3));
+        // // pow();
+        function reverseString3(str,pos,strOut){
+            if(pos<0){
+                return strOut;
+            }
+            strOut += str.charAt(pos--);
+            return reverseString3(str,pos,strOut);
+        }
+        var str = 'abcdef';
+        var result = '';
+        console.log(reverseString3(str,str.length,result));
+    </script>
+</body>
+</html>

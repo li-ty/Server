@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建对象</title>
+</head>
+<body>
+    <script>
+        //基于Object()构造函数
+        // var person = new Object();
+        // //为实例增加各种各样的属性
+        // person.name = 'cao teacher';
+        // person.age = 11;
+        // person.getName = function(){
+        //     return this.name;
+        // }
+        // person.address = {
+        //     name:'上海',
+        //     code:'133333'
+        // }
+        // //基于对象字面量
+        // var person = {
+        //     //基本数据类型的属性
+        //     name:'cao teacher',
+        //     age:18,
+        //     //函数类型的属性
+        //     getName:function(){
+        //         return this.name;
+        //     },
+        //     //对象类型的属性
+        //     adress:{
+        //         name:'上海',
+        //         code:'10000'
+        //     }
+        // }
+
+        //工厂方法
+        // function createPerson(name,age,address){
+        //     //内部通过Object()构造函数生成一个对象，并添加各种属性
+        //     var o = new Object();
+        //     o.name = name;
+        //     o.age = age;
+        //     o.address = address;
+        //     o.getName = function(){
+        //         return this.name;
+        //     }
+        //     return o;
+        // }
+        // var person = createPerson('head Teacher',11,{
+        //     name:'北京',
+        //     code:'000000'
+        // })
+        // var person2 = createPerson('head Teacher2',12,{
+        //     name:'北京',
+        //     code:'000000'
+        // })
+        // console.log(person.name);
+        // console.log(person2.name);
+        // console.log(person.getName());
+        // console.log(person2.getName());
+
+        //构造函数
+        // function Person(name,age,address){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.address = address;
+        //     this.getName = function(){
+        //         return this.name;
+        //     }
+        // }
+        // var person = new Person('cao teacher',11,{
+        //     name:'北京市',
+        //     code:'000000'
+        // });
+        // var person2 = new Person('cao teacher',11,{
+        //     name:'北京市',
+        //     code:'000000'
+        // });
+        // // console.log(person instanceof Person);
+        // console.log(person.getName === person2.getName);
+
+        //基于原型对象的模式
+        // function Person(){};
+        // Person.prototype.name = 'head teacher';
+        // Person.prototype.age = 11;
+        // Person.prototype.address = {
+        //     name:'北京',
+        //     code:'000000'
+        // }
+        // Person.prototype.getName = function(){
+        //     return this.name;
+        // }
+        // //生成两个实例
+        // // var person = new Person();
+        // // var person2 = new Person();
+
+
+        // // console.log(person.name === person2.name);
+        // // console.log(person.getName === person2.getName);
+        
+        // var person = new Person();
+        // var person2 = new Person();
+
+        // console.log(person.name);  // head
+        // person2.name = 'head2';
+        // console.log(person.name); // head2
+
+        //构造函数和原型混合的模式
+        // function Person(name,age,adress){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.adress = adress;
+        // }
+        // Person.prototype.getName = function(){
+        //     return this.name;
+        // }
+        // var person = new Person('head',11,{
+        //     name:'北京',
+        //     code:'00000'
+        // })
+        // var person2 = new Person('Head2',12,{
+        //     name:'上海',
+        //     code:'000000'    
+        // })
+        // console.log(person.name);
+        // console.log(person2.name);
+
+        // person.adress.name = '广州';
+        // person.adress.code = '500000';
+
+        // console.log(person2.adress.name);
+        // console.log(person2.adress.code);
+
+        // console.log(person.getName === person2.getName);
+        // person2.name = 'head3';
+        // console.log(person.getName());
+        // console.log(person2.getName());
+
+        // 动态原型模式
+        function Person(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            // 如果Person对象中_initialized 为undeﬁned，则表明还没有为Person的原型对象添加函数
+            if (typeof Person._initialized === "undeﬁned") {
+                Person.prototype.getName = function () {
+                    return this.name;
+                };
+                Person._initialized = true;
+            }
+        }
+        // 生成两个实例
+        var person = new Person('head', 11, {
+        name: '北京市',
+        code: '100000'
+        });
+        var person2 = new Person('head2', 12, {
+        name: '上海市',
+        code: '200000'
+        });
+        // 改变其中一个实例的属性
+        person.address.name = '广州市';
+        person.address.code = '510000';
+        // 不会影响到另一个实例的属性
+        console.log(person2.address.name);
+        // 上海市
+        // 改变一个实例的属性，函数仍然能正常执行
+        person2.name = 'head3';
+        console.log(person.getName());  // head
+        console.log(person2.getName()); // head3
+    </script>
+</body>
+</html>

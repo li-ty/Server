@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript解析和执行过程</title>
+</head>
+<body>
+    <script>
+        // 变量的词法环境
+        // console.log(ad);
+        // var ad = 'string';
+        // console.log(ad);
+        // //声明函数的词法环境
+        // test();
+        // function test(){
+        //     console.log('函数执行');
+        // }
+        // test();
+        // //表达式函数的词法环境
+        // // e();
+        // var e = function(){
+        //     console.log('函数表达式');
+        // }
+        // e();
+        //命名冲突
+        // console.log(f);
+        // var f = 1;
+        // function f(){
+        //     console.log('这是一个函数');
+        // }
+        // 后者会覆盖前者
+        // console.log(f);
+        // var f = 1;
+        // var f = 2;
+        // console.log(f);
+        // function f(){
+        //     console.log(1);
+        // }
+        // function f(){
+        //     console.log(2);
+        // }
+        // f();
+        // //先声明在调用
+        // var arr = [];
+        // console.log(arr);
+        //函数的冲突
+        // function f(a,b){
+        //     alert(a);
+        //     alert(b);
+        //     //词法环境的时候是不会处理的
+        //     var b = 100;
+        //     function a(){
+        //     }
+        // }
+        // f(1);
+        //在函数内没有var声明的变量 就是最外层词法环境的成员 也就是全局变量
+        function a(){
+            function b(){
+                g = 12;
+            }
+            b();
+        }
+        a();
+        console.log(g);
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重的7种算法</title>
+</head>
+<body>
+    <script>
+        // function arrayUnique(array){
+        //     var result = [];
+        //     for(var i=0;i<array.length;i++){
+        //         if(result.indexOf(array[i]) === -1){
+        //             result.push(array[i]);
+        //         }
+        //     }
+        //     return result;
+        // }
+        var array = [1,4,5,4,5,8,1,10,58,'1','4'];
+        // console.log(arrayUnique(array));
+
+        // function arrayUnique2(array){
+        //     var obj = {},result = [],val,type;
+        //     for(var i=0;i<array.length;i++){
+        //         val = array[i];
+        //         type = typeof val;
+        //         if(!obj[val]){
+        //             obj[val] = [type];
+        //             result.push(val);
+        //         }else if(obj[val].indexOf(type)<0){
+        //             obj[val].push(type);
+        //             result.push(val);
+        //         }
+        //     }
+        //     return result;
+        // }
+        // console.log(arrayUnique2(array));
+
+        // function arrayUnique3(array){
+        //     var result = [array[0]];
+        //     array.sort(function(a,b){return a-b});
+        //     for(var i = 0;i<array.length;i++){
+        //         if(array[i] !== result[result.length-1]){
+        //             result.push(array[i]);
+        //         }
+        //     }
+        //     return result;
+        // }
+        // console.log(arrayUnique3(array));
+
+        // function arrayUnique4(array){
+        //     var result = [];
+        //     for(var i=0;i<array.length;i++){
+        //         for(var j=i+1;j<array.length;j++){
+        //             if(array[i] === array[j]){
+        //                 j = ++i;
+        //             }
+        //         }
+        //         result.push(array[i]);
+        //     }
+        //     return result;
+        // }
+        // console.log(arrayUnique4(array));
+
+        // function arrayUnique5(array){
+        //     var obj = [],type;
+        //     return array.reduce(function(preValue,curValue){
+        //         type = typeof curValue;
+        //         if(!obj[curValue]){
+        //             obj[curValue] = [type];
+        //             preValue.push(curValue);
+        //         }else if(obj[curValue].indexOf(type)<0){
+        //             obj[curValue].push(type);
+        //             preValue.push(curValue);
+        //         }
+        //         return preValue;
+        //     },[]);
+        // }
+        // console.log(arrayUnique5(array));
+
+        // function arrayUnique6(array){
+        //     return Array.from(new Set(array));
+        // }
+        // console.log(arrayUnique6(array));
+
+        function arrayUnique7(array){
+            var map = new Map();
+            return array.filter(function(item){
+                return !map.has(item) && map.set(item,1);
+            })
+        }
+        console.log(arrayUnique7(array));
+    </script>
+</body>
+</html>

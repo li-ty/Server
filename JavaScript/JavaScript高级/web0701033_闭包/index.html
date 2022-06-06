@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //缓存结果
+        // var cacheBox = (function(){
+        //     //缓存的容器
+        //     var cache = {};
+        //     return {
+        //         searchBox:function(id){
+        //             //如果内存中有就直接返回
+        //             if(id in cache){
+        //                 return '查找的结果为：'+cache[id];
+        //             }
+        //             //经过耗时的查找
+        //             var result = dealFn(id);
+        //             //更新缓存的结果
+        //             cache[id] = result;
+        //             //返回计算的结果
+        //             return '查找的结果为：'+result;
+        //         }
+        //     }
+        // })();
+        // function dealFn(id){
+        //     console.log('这里是请求接口拿数据的过程');
+        //     return id;
+        // }
+        // console.log(cacheBox.searchBox(1));
+        // console.log(cacheBox.searchBox(1));
+        // console.log(cacheBox.searchBox(2));
+        // console.log(cacheBox.searchBox(2));
+        // console.log(cacheBox.searchBox(1));
+
+        //封装
+        // var stack = (function(){
+        //     //使用数组模拟栈的实现
+        //     var arr = [];
+        //     //栈
+        //     return{
+        //         push:function(value){
+        //             arr.push(value);
+        //         },
+        //         pop:function(){
+        //             return arr.pop();
+        //         },
+        //         size:function(){
+        //             return arr.length;
+        //         }
+        //     }
+        // })();
+        // stack.push('abc');
+        // stack.push('def');
+        // console.log(stack.size());
+        // stack.pop();
+        // console.log(stack.size());
+        //下标索引问题
+        // var lis = document.getElementsByTagName('ul')[0].children;
+        // for (var i = 0; i < lis.length; i++) {
+        //     (function(index){
+        //         lis[index].onclick=function(){
+        //             console.log(index);
+        //         }
+        //     })(i);
+        // }
+        //定时器问题
+        // var arr = ['one','two','three'];
+        // for(var i=0;i<arr.length;i++){
+        //     (function(time){
+        //         setTimeout(function(){
+        //             console.log(arr[time]);
+        //         },i*1000);
+        //     })(i);
+            
+        // }
+        //作用域链问题
+        // var name = 'outher';
+        // var obj = {
+        //     name :'inner',
+        //     method:function(){
+        //         //this谁调用的指向谁 window
+        //         var _this = this;
+        //         return function(){
+        //             return _this.name;
+        //         }
+        //     }
+        // }
+        // console.log(obj.method()());
+        //函数重名问题
+        function foo(a,b){
+            console.log(b);
+            return {
+                //第二个foo函数
+                foo:function(c){
+                    //第三个foo函数
+                    return foo(c,a);
+                }
+            }
+        }
+        // var x = foo(0); x.foo(1); x.foo(2); x.foo(3);
+        
+        var y = foo(0).foo(1).foo(2).foo(3);
+        // var z = foo(0).foo(1); z.foo(2); z.foo(3);
+</script>
+</body>
+</html>

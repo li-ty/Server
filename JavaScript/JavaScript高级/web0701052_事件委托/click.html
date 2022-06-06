@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li>文本1</li>
+		<li>文本2</li>
+		<li>文本3</li>
+		<li>文本4</li>
+		<li>文本5</li>
+		<li>文本6</li>
+		<li>文本7</li>
+		<li>文本8</li>
+		<li>文本9</li>
+	</ul>
+	<button id="add">新增</button>
+    <script src="./EventUtil.js"></script>
+    <script>
+        //获取所有的li标签
+        var children = document.querySelectorAll('li');
+        //遍历添加onclick事件
+        for(var i=0;i<children.length;i++){
+            children[i].addEventListener('click',function(){
+                console.log(this.innerText);
+            })
+        }
+        var ul = document.querySelector('ul');
+        var add = document.querySelector('#add');
+        add.addEventListener('click',function(){
+            //创建新的li元素
+            var newLi = document.createElement('li');
+            var newText = document.createTextNode('文本10');
+            newLi.appendChild(newText);
+            ul.appendChild(newLi);
+        })
+        var parent = document.querySelector('ul');
+        parent.addEventListener('click',function(event){
+            var event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            if(target.nodeName.toLowerCase() === 'li'){
+                console.log(target.innerText);
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceof运算符</title>
+</head>
+<body>
+    <script>
+        //基本用法
+        // var str = new String('hello world');
+        // console.log(str instanceof String);
+
+        // function Foo() {}
+        // var foo = new Foo();
+        // console.log(foo instanceof Foo);
+
+        //继承判断
+        // 定义构造函数
+        function C(){} 
+        function D(){} 
+        var o = new C();
+        console.log(o instanceof C);
+        console.log(o instanceof D);
+        D.prototype = new C();
+        var o2 = new D();
+        console.log(o2 instanceof D);
+        console.log(o2 instanceof C);
+        D.prototype = {};
+        var o3 = new D();
+        console.log(o3 instanceof D);
+        console.log(o3 instanceof C);
+        o3.__proto__ = {};
+        console.log(o3 instanceof D);
+    </script>
+</body>
+</html>

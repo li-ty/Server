@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式位置匹配</title>
+</head>
+<body>
+    <script>
+        // var result = "hello".replace(/^|$/g,'#');
+        // console.log(result);
+        // var result = "I\nlove\njavascript".replace(/^|$/gm, '#');
+        // console.log(result);
+
+        // var result = "[js] lesson_01.mp4".replace(/\b/g,'#');
+        // console.log(result);
+
+        // var result = "hello".replace(/(?=l)/g,'#');
+        // var result2 = "hello".replace(/(?!l)/g,'#');
+        // console.log(result);
+        // console.log(result2);
+
+        // var result = /^^hello$$$/.test("hello");
+        // console.log(result);
+
+        //数字的千分位表示法
+        var result = "123456789".replace(/(?!^)(?=(\d{3})+$)/g,',');
+        console.log(result);
+        //密码验证问题 密码长度6-12位，由数字、小写字符和大写字母组成，但必须至少包括2种字符
+
+        // var reg = /^[0-9a-zA-Z]{6-12}/;
+        var reg = /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[a-z])(?=.*[A-Z]))^[0-9A-Za-z]{6,12}$/;
+        console.log( reg.test("1234567"));
+        console.log( reg.test("abcdef"));
+        console.log( reg.test("ABCDEF234"));
+    </script>
+</body>
+</html>

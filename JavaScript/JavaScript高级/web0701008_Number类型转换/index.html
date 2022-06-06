@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number类型转换</title>
+</head>
+<body>
+    <script>
+        //Number转型函数
+        // console.log(Number(10));
+        // console.log(Number(010));
+        // console.log(Number(0x10));
+        // console.log(Number(true));
+        // console.log(Number(false));
+        // console.log(Number(null));
+        // console.log(Number(undefined));
+        //字符串转换成number的规则
+        // console.log(Number('021'));
+        // console.log(Number('0.21'));
+        // console.log(Number('00.21'));
+        // console.log(Number('0x10'));
+        // console.log(Number('010'));
+        // console.log(Number(''));
+        //对象转换的规则
+        // var obj = {
+        //     age:21,
+        //     valueOf:function() {
+        //         return this.age;
+        //     },
+        //     toString:function(){
+        //         return 'good';
+        //     }
+        // }
+        // console.log(Number(obj));
+
+        //parseInt
+        // console.log(parseInt('0x12',16));
+        // //将十六进制转换成十进制 18 number类型不能参加到parseInt函数转换
+        // //18转换成字符串类型 
+        // console.log(parseInt(0x12,16));
+
+        // //前置截取的规则  16进制
+        // console.log(parseInt('fg123',16));    
+        // console.log(parseInt('0x12',16));    
+        // //算数运算
+        // console.log(parseInt(15*3,10));
+        // console.log(parseInt('15*3',10));
+        // //对包含e的数据的处理
+        // console.log(parseInt(6e3,10));
+        // console.log(parseInt(6e3,16));
+        // console.log(parseInt('6e3',10));
+        // console.log(parseInt('6e3',16));
+        // //浮点类型的转换
+        // console.log(parseInt('1.23',10));
+        // console.log(parseInt('6.99',10));
+
+        //parseFloat
+        console.log(parseFloat('+1.2'));
+        console.log(parseFloat('-1.2'));
+        console.log(parseFloat('++1.2'));
+        console.log(parseFloat('--1.2'));
+        console.log(parseFloat('     -1.2'));
+        console.log(parseFloat('f-1.2'));
+        console.log(parseInt('4e3',10));
+        //对科学计数法进行运算
+        console.log(parseFloat('4e3'));
+        console.log(parseFloat('4.3.2'));
+    </script>
+</body>
+</html>

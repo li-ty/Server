@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript中的变量提升和函数提升</title>
+</head>
+<body>
+    <script>
+        // function fn(){
+        //     if(!foo){
+        //         var foo = 5;
+        //     }
+        //     console.log(foo);
+        // }
+        // fn();
+        //变量提升js语言的bug 不推荐大家使用这种操作 先定义在调用
+        // var foo = 3;
+        // function fn() {
+        //     var foo = foo || 5;
+        //     console.log(foo);
+        // }
+        // fn();
+        
+        // function fn() {
+        //     function aa() {
+        //         console.log(1);
+        //     }
+        //     //后面的重名函数会覆盖前面的
+        //     function aa() {
+        //         console.log(2);
+        //     }
+        //     aa();
+        // }
+        // fn();
+        // //函数表达式不会提升
+        // foo();
+        // var foo = function (params) {
+        //     console.log(1);
+        // }
+
+        // function fn() {
+        //     foo();
+        //     var foo = function() {
+        //         console.log(1);
+        //     }
+        //     foo();
+        //     function foo() {
+        //         console.log(2);
+        //     }
+        //     foo();
+        // }
+        // fn();
+        //上面代码预编译后的效果
+        // function fn() {
+        //     var foo;
+        //     foo = function foo() {
+        //         console.log(2);
+        //     }
+        //     foo(); //2
+        //     foo = function () {
+        //         console.log(1);
+        //     }
+        //     foo();  //1
+        //     foo();  //1
+        // }
+        // fn();
+        //自测的小例子
+        // var foo = 3;
+        // function fn() {
+        //     function foo() {
+        //     }
+        //     console.log(foo); 
+        //     foo = 5;
+        //     console.log(foo);
+            
+        // }
+        // fn();
+        // console.log(foo);
+        //相互递归的例子
+        // function isEven(n) {
+        //     if(n === 0){
+        //         return true;
+        //     }
+        //     return isOdd(n-1);
+        // }
+        // function isOdd(n) {
+        //     if(n === 0){
+        //         return false;
+        //     }
+        //     return isEven(n-1);
+        // }
+        // console.log(isEven(3));
+
+        //先声明后调用
+        var i ;
+        var name = 'head';
+        var arr = [];
+        function fn() {
+            
+        }
+        //let 和const 会有更好的约束帮助我们编程
+        //所以我们在新的项目当中 会更多的使用let 和const 声明变量
+    </script>
+</body>
+</html>
