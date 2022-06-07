@@ -19,3 +19,4 @@
 - AI代码自动生成VSCode插件github copilot：https://copilot.github.com/
 - 发送GET/POST等请求VSCode插件Rest Client：https://github.com/Huachao/vscode-restclient
 - 一键运行选中代码插件Code Runner：https://github.com/formulahendry/vscode-code-runner
+- Github加速：https://github.com/dotnetcore/FastGithub
