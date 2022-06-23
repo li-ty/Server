@@ -20,3 +20,5 @@
 - 发送GET/POST等请求VSCode插件Rest Client：https://github.com/Huachao/vscode-restclient
 - 一键运行选中代码插件Code Runner：https://github.com/formulahendry/vscode-code-runner
 - Github加速：https://github.com/dotnetcore/FastGithub
+- 将exe或bat文件注册到Windows服务，设置开机自启动工具：http://nssm.cc/
+
