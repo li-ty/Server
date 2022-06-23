@@ -1,3 +1,34 @@
+# 笔记
+
+## 异步编程
+* fs 文件操作
+    ```js
+    require('fs').readFile('./index.html', (err,data)=>{})
+    ```
+* 数据库操作
+* AJAX 
+  ```js
+    $.get('/server', (data)=>{})
+  ```
+* 定时器 
+  ```js
+  setTimeout(()=>{}, 2000);
+  ```
+
+## Promise 的状态
+实例对象中的一个属性 『PromiseState』
+* pending  未决定的
+* resolved / fullfilled  成功
+* rejected  失败
+
+## Promise 对象的值
+实例对象中的另一个属性 『PromiseResult』
+保存着异步任务『成功/失败』的结果
+* resolve
+* reject 
+
+
+
 # Promise对象
 `JavaScript`是单线程的语言，通过维护执行栈与任务队列而实现了异步操作，`setTimeout`与`Ajax`就是典型的异步操作，`Promise`就是异步操作的一个解决方案，用于表示一个异步操作的最终完成或失败及其结果值，`Promise`有各种开源实现，在`ES6`中被统一规范，由浏览器直接支持。
 
