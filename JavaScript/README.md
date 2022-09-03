@@ -1,140 +1,3 @@
-### 浮点数运算精度问题处理
-``` js
-Math.add = function(v1, v2)
-{
-///<summary>精确计算加法。语法：Math.add(v1, v2)</summary>
-///<param name="v1" type="number">操作数。</param>
-///<param name="v2" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    var r1, r2, m;
-    try
-    {
-        r1 = v1.toString().split(".")[1].length;//第1个加数的小数的位数
-    }
-    catch (e)
-    {
-        r1 = 0;
-    }
-    try
-    {
-        r2 = v2.toString().split(".")[1].length;//第2个加数的小数的位数
-    }
-    catch (e)
-    {
-        r2 = 0;
-    }
-    m = Math.pow(10, Math.max(r1, r2));//小数位数最多的
-
-    return (v1 * m + v2 * m) / m;//整数运算再还原
-}
-
-
-Number.prototype.add = function(v)
-{
-///<summary>精确计算加法。语法：number1.add(v)</summary>
-///<param name="v" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    return Math.add(v, this);
-}
-
-
-Math.sub = function(v1, v2)
-{
-///<summary>精确计算减法。语法：Math.sub(v1, v2)</summary>
-///<param name="v1" type="number">操作数。</param>
-///<param name="v2" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    return Math.add(v1, -v2);//减法是带负号的加法运算
-}
-
-
-Number.prototype.sub = function(v)
-{
-///<summary>精确计算减法。语法：number1.sub(v)</summary>
-///<param name="v" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    return Math.sub(this, v);
-}
-
-
-Math.mul = function(v1, v2)
-{
-///<summary>精确计算乘法。语法：Math.mul(v1, v2)</summary>
-///<param name="v1" type="number">操作数。</param>
-///<param name="v2" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    var m = 0;
-    var s1 = v1.toString();
-    var s2 = v2.toString();
-    try
-    {
-        m += s1.split(".")[1].length;
-    }
-    catch (e)
-    {
-    }
-    try
-    {
-        m += s2.split(".")[1].length;
-    }
-    catch (e)
-    {
-    }
-
-    return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
-}
-
-
-Number.prototype.mul = function(v)
-{
-///<summary>精确计算乘法。语法：number1.mul(v)</summary>
-///<param name="v" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    return Math.mul(v, this);
-}
-
-
-Math.div = function(v1, v2)
-{
-///<summary>精确计算除法。语法：Math.div(v1, v2)</summary>
-///<param name="v1" type="number">操作数。</param>
-///<param name="v2" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    var t1 = 0;
-    var t2 = 0;
-    var r1, r2;
-    try
-    {
-        t1 = v1.toString().split(".")[1].length;
-    }
-    catch (e)
-    {
-    }
-    try
-    {
-        t2 = v2.toString().split(".")[1].length;
-    }
-    catch (e)
-    {
-    }
-
-    with (Math)
-    {
-        r1 = Number(v1.toString().replace(".", ""));
-        r2 = Number(v2.toString().replace(".", ""));
-        return (r1 / r2) * pow(10, t2 - t1);
-    }
-}
-
-
-Number.prototype.div = function(v)
-{
-///<summary>精确计算除法。语法：number1.div(v)</summary>
-///<param name="v" type="number">操作数。</param>
-///<returns type="number">计算结果。</returns>
-    return Math.div(this, v);
-}
-```
 
 ### 分组求和函数：
 ``` js
@@ -188,6 +51,155 @@ Number.prototype.div = function(v)
             console.log(a);
         };
 ```
+
+## 实现浅拷贝与深拷贝
+`Js`包含基本数据类型与引用数据类型两种不同的数据类型的值，深拷贝与浅拷贝的概念只存在于引用数据类型。对于引用类型，浅拷贝是拷贝了指向这个对象堆内存的指针，是拷贝了对原对象引用，深拷贝是拷贝了该对象的所有属性到一个新的对象，若是原对象的某属性依然引用了其他对象，那么需要将原对象引用的其他对象一并进行深拷贝，并不断递归进行。对于基本数据类型是不存在深拷贝与浅拷贝的概念的，如果将一个基本数据类型变量的值赋值到另一个变量，那么新变量的值是对于原变量值的复制而不是引用，如果必须要按照深浅拷贝的概念理解的话，对于基本数据类型的复制可以理解为按值深拷贝。
+
+
+## 原生方法实现
+原生方法实现浅拷贝，可以使用`{...obj}`与`Object.assign({}, obj)`等方式，`{...obj}`主要是使用了`Spread`操作符将对象表达式展开构造字面量对象的方式实现浅拷贝，对于`Object.assign({}, obj)`是执行了一次将可枚举属性复制到目标对象并返回目标对象的操作。关于`Object.assign`是浅拷贝还是对于第一层是深拷贝之后是浅拷贝的说法，主要取决于如何理解浅拷贝与深拷贝的概念，假如同本文一样认为只有引用类型才有浅拷贝与深拷贝的概念的话，那么`Object.assign`就是浅拷贝；假如认为对于基本数据类型也有浅拷贝与深拷贝的概念的话，那么如上文所述对于基本数据类型的拷贝可以理解为按值深拷贝，那么关于`Object.assign`第一层是深拷贝，第二层及以后是浅拷贝的说法也是没有问题的。  
+原生方法实现深拷贝，主要是使用`JSON.parse()`与`JSON.stringify()`，首先将对象序列化为`JSON`字符串，再将`JSON`字符串反序列化为对象，使用这种方式效率比较高，但是会有一些问题，对于循环引用的对象无法实现深拷贝，对于被拷贝的对象，如果对象中有属性为`Date`对象，此种方式深拷贝会将时间对象转化为字符串；如果对象中有属性为`RegExp`对象、`Error`对象，此种方式深拷贝会得到一个空对象；如果对象中有属性为`function`对象、`undefined`、`Symbol`值，此种方式深拷贝会忽略这些值；如果对象中有属性为`NaN`、`Infinity`、`-Infinity`，此种方式深拷贝会将结果转为`null`。
+```javascript
+function shallowCopy(target, origin){
+    return Object.assign(target, origin);
+}
+
+function deepCopy(target, origin){
+    var originDeepCopy = JSON.parse(JSON.stringify(origin)); 
+    return Object.assign(target, originDeepCopy);
+}
+
+// 浅拷贝测试 将origin中属性浅拷贝到target
+var target = {}
+var origin = {
+    // a属性为引用类型
+    a: { 
+        aa: 1
+    } 
+}
+shallowCopy(target, origin);
+console.log(target, origin); // {a: {aa: 1}} {a: {aa: 1}}
+origin.a.aa = 11;
+console.log(target, origin); // {a: {aa: 11}} {a: {aa: 11}}
+
+// 深拷贝测试 将origin中属性深拷贝到target
+var target = {}
+var origin = {
+    // a属性为引用类型
+    a: { 
+        aa: 1
+    } 
+}
+deepCopy(target, origin);
+console.log(target, origin); // {a: {aa: 1}} {a: {aa: 1}}
+origin.a.aa = 11;
+console.log(target, origin); // {a: {aa: 1}} {a: {aa: 11}}
+```
+
+## 递归实现
+对于浅拷贝，只需要处理被拷贝对象的所有的可枚举属性进行赋值即可。  
+对于深拷贝，需要将基本数据类型进行赋值，然后对对象属性进行递归处理。
+```javascript
+function shallowCopy(target, origin){
+    for(let item in origin) target[item] = origin[item];
+    return target;
+}
+
+function deepCopy(target, origin){
+    for(let item in origin) {
+        if(origin[item] && typeof(origin[item]) === "object") {
+            // 只对Object Array Date RegExp对象做了简单处理
+            if(Object.prototype.toString.call(origin[item]) === "[object Object]"){
+                target[item] = deepCopy({}, origin[item]);
+            }else if(origin[item] instanceof Array){
+                target[item] = deepCopy([], origin[item]);
+            }else if(origin[item] instanceof Date){
+                target[item] = new Date(origin[item]);
+            }else if(origin[item] instanceof RegExp){
+                target[item] = new RegExp(origin[item].source, origin[item].flags);
+            }else{
+                 target[item] = origin[item];
+            }
+        }else{
+            target[item] = origin[item];
+        }
+    }
+    return target;
+}
+
+// 浅拷贝测试 将origin中属性浅拷贝到target
+var target = {}
+var origin = {
+    // a属性为引用类型
+    a: { 
+        aa: 1
+    } 
+}
+shallowCopy(target, origin);
+console.log(target, origin); // {a: {aa: 1}} {a: {aa: 1}}
+origin.a.aa = 11;
+console.log(target, origin); // {a: {aa: 11}} {a: {aa: 11}}
+
+// 深拷贝测试 将origin中属性深拷贝到target
+var target = {}
+var origin = {
+    // a属性为引用类型
+    a: { 
+        aa: 1,
+        bb: {bbb: 1},
+        cc: [1, {ccc: 1}],
+        dd: new Date().getTime(),
+        ee: /./g
+    } 
+}
+deepCopy(target, origin);
+console.log(target, origin);
+/*
+  a: {                  a: {
+    aa: 1                 aa: 1
+    bb: {bbb: 1}          bb: {bbb: 1}
+    cc: [1, {ccc: 1}]     cc: [1, {ccc: 1}]
+    dd: 1390318311560     dd: 1390318311560
+    ee: /./g              ee: /./g
+  }                     }
+*/
+origin.a.aa = 11;
+origin.a.bb.bbb = 11;
+origin.a.cc[0] = 11;
+origin.a.cc[1].ccc = 11;
+origin.a.dd = new Date().getTime();
+origin.a.ee = /./gi;
+console.log(target, origin);
+/*
+  a: {                  a: {
+    aa: 1                 aa: 11
+    bb: {bbb: 1}          bb: {bbb: 11}
+    cc: [1, {ccc: 1}]     cc: [11, {ccc: 11}]
+    dd: 1390318311560     dd: 1390318792391
+    ee: /./g              ee: /./gi
+  }                     }
+*/
+```
+
+## 递归实现（简化版）
+
+```javascript
+function clone(obj){
+    if(typeof obj !== "object") return obj;
+    let res;
+    if(obj instanceof Object)
+        res = {};
+    else
+        res = [];
+    for(let key in obj){
+        res[key] = clone(obj[key])
+    }
+    return res;
+}
+```
+
+
+
 
 ### 数组排序
 #### 原型链方法调用
