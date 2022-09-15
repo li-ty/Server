@@ -1,5 +1,4 @@
-- [leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[牛客](https://www.nowcoder.com/)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)  
-- [devdocs.io](https://devdocs.io/)&nbsp;&nbsp;[MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[ES6](http://es6.ruanyifeng.com/)
+- [MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[牛客](https://www.nowcoder.com/)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)  
  
 ### Windows命令
 | 命令 | 用法 |
