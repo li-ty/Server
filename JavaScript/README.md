@@ -32,6 +32,29 @@
           return groups;
       }
 ```
+
+### 性能极致优化版（JSON.stringify太耗性能）
+``` js
+    function groupBy(list, keys) {
+        const groups = [];
+        list.forEach(i => {
+            const key = {};
+            keys.forEach(k => {
+                key[k] = i[k];
+            });
+            let group = groups.find(g => keys.every(k => g.key[k] === key[k]));
+            if (!group) {
+                group = { key: key };
+                groups.push(group);
+            }
+            group.data = group.data || [];
+            group.data.push(i);
+        });
+        return groups;
+    }
+```
+
+
 测试函数
 ``` js
         window.onload=function () {
