@@ -1,4 +1,4 @@
-- [MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[leetcode-cn](https://leetcode-cn.com)&nbsp;&nbsp;[牛客](https://www.nowcoder.com/)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)  
+- [MDN](https://developer.mozilla.org/zh-CN/)&nbsp;&nbsp;[leetcode](https://leetcode.cn/)&nbsp;&nbsp;[牛客](https://www.nowcoder.com/)&nbsp;&nbsp;[计算机课程](https://study.163.com/curricula/cs.htm)  
  
 ### Windows命令
 | 命令 | 用法 |
