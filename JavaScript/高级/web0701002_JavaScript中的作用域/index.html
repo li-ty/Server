@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript中的作用域</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+    </ul>
+    <script>
+        // var outVar = '外层变量';
+        // function outFun(){
+        //     //作用域的概念进行了变量的隔离
+        //     variable = '未定义直接赋值的变量';
+        //     //全局变量
+        //     var innerVar = '内层变量';
+        // }
+        // outFun();
+        // console.log(outVar);
+        // console.log(variable);
+        //局部函数
+        // function outFun(){
+        //     //局部函数
+        //     function innerFun(){
+        //         console.log('这是局部函数');
+        //     }
+        //     innerFun();
+        // }
+        // outFun()
+        //作用域的层级关系 内层是可以访问外层的
+        // function foo(a){
+        //     b = a*2;
+        //     function bar(c){
+        //         c = b*2;
+        //         console.log(a);
+        //         console.log(b);
+        //         console.log(c);
+        //     }
+        //     bar(b);
+        //     console.log(c);
+        // }
+        // foo(2);
+
+        // if(true){
+        //     var name = 'head';
+        // }
+        // console.log(name);
+        //window对象上面有一个name属性所以他已经存在了 你在他之前调用会有值
+        // console.log(window);
+        // var name = 'head';
+        // let value = 'head';
+
+        // let value = 20;
+        // let value = 30;
+        // console.log(value);
+        var oLi = document.getElementsByTagName('li');
+        for(let i=0;i<oLi.length;i++){
+            oLi[i].onclick = function(){
+                console.log('第'+(i+1)+'个');
+            }
+        }
+    </script>
+</body>
+</html>

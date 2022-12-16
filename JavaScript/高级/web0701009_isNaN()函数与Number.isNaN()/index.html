@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isNaN()函数与Number.isNaN()</title>
+</head>
+<body>
+    <script>
+        //NaN基础知识
+        // var a = 0/0;
+        // var b = a+0;
+        // console.log(a);
+        // console.log(b);
+        // console.log(a==b);
+        console.log(Number.isNaN(NaN));
+        console.log(Number.isNaN({}));
+        console.log(Number.isNaN(undefined));
+        console.log(Number.isNaN('javascript'));
+        console.log(Number.isNaN(new Date()));
+        console.log(Number.isNaN(true));
+        console.log(Number.isNaN(1));
+    </script>
+</body>
+</html>

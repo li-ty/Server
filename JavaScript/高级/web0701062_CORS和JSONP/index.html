@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax跨域解决方案</title>
+</head>
+<body>
+    <form name="userForm">
+        学号：<input type="text" id="studentNo" name="studentNo">
+        搜索：<input type="button" value="搜索" id="btn">
+    </form>
+    <script>
+        window.onload=function(){
+            var btn = document.querySelector('#btn');
+            btn.addEventListener('click',function(){
+                buildJSONP();
+            });
+            function buildJSONP(){
+                var studentNo = document.querySelector('#studentNo').value;
+                //请求参数
+                var param = 'studentNo='+studentNo+'&callback=successFn';
+                //请求的url
+                var url = 'http://127.0.0.1:3000/getUserByStudentNo?'+param;
+
+                var script = document.createElement('script');
+                script.src = url;
+                document.body.append(script);
+            }
+            
+        }
+        var successFn = function(result){
+                console.log(result);
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组遍历</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5,6,7];
+        //for
+        // for(var i=0;i<arr.length;i++){
+        //     console.log(arr[i]);
+        // }
+        //forEach
+        // arr.forEach(function(element,index,array){
+        //     console.log(element);
+        //     console.log(index);
+        //     console.log(array);
+        // })
+        //map()
+        // var arraySquares = arr.map(function(element,index,array){
+        //     // console.log(element*element);
+        //     // console.log(index);
+        //     // console.log(array);
+        //     return element*element;
+        // })
+        // console.log(arraySquares);
+        //filter
+        // Array.prototype.ﬁlter = Array.prototype.ﬁlter ||
+        // function (fn, context) {
+        //     var arr = [];
+        //     if (typeof fn === "function") {
+        //         for (var k = 0, length = this.length; k < length; k++) {
+        //                 if(typeof fn === "function"
+        //                 &&Object.prototype.hasOwnProperty.call(this, k)){
+        //                 fn.call(context, this[k], k, this) && arr.push(
+        //             this[k]);
+        //                 }
+        //         }
+        //     }
+        //     return arr;
+        // };
+        
+        // function isFour(element,index,array){
+        //     return element>4;
+        // }
+        // var passed1 = [1,2,3,4,5].some(isFour);
+        // console.log(passed1);
+        // var passed2 = [5,6,7,8].every(isFour);
+        // console.log(passed2);
+
+        var value = [1,5,10,15,20].find(function(ele,index,array){
+            return ele>5;
+        })
+        console.log(value);
+    </script>
+</body>
+</html>

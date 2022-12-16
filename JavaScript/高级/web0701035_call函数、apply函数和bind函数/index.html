@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call函数、apply函数和bind函数</title>
+</head>
+<body>
+    <script>
+        //call
+        // function add(x,y){
+        //     return x+y;
+        // }
+        // function myAddCall(x,y){
+        //     return add.call(this,x,y);
+        // }
+        // console.log(myAddCall(10,20));
+
+        //apply
+        // function add(x,y){
+        //     return x+y;
+        // }
+        // function myAddApply(x,y){
+        //     return add.apply(this,[x,y]);
+        // }
+        // console.log(myAddApply(10,20));
+
+        //bind
+        function add(x,y){
+            return x+y;
+        }
+        function myAddBind(x,y){
+            var bindFn = add.bind(this,x,y);
+            return bindFn();
+        }
+        console.log(myAddBind(10,20));
+        
+    </script>
+</body>
+</html>

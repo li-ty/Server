@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Composite {
+            constructor(name) {
+                this.name = name;
+                this.children = [];
+            }
+            addChild(child) {
+                this.children.push(child);
+                return this;
+            }
+            getChild(name) {
+                let elements = [];
+                let r = children => {
+                    for (let item of children) {
+                        if (item.children) r(item.children);
+                        else elements.push(item);
+                    }
+                }
+                let f = children => {
+                    for (let item of children) {
+                        //2级节点
+                        if (item.name == name && item.children) r(item.children);
+                        //2-N级节点
+                        if (item.name != name && item.children) f(item.children);
+                        //叶子节点
+                        if (item.name == name && !item.children) elements.push(item);
+                    }
+                }
+
+                if (name && this.name != name) f(this.children)
+                else r(this.children);
+                return elements;
+            }
+            hardworking(name) {
+                let leafObjects = this.getChild(name);
+                for (let leaf of leafObjects) {
+                    leaf.hardworking();
+                }
+            }
+        }
+        class Leaf {
+            constructor(name) {
+                this.name = name;
+            }
+            addChild(child) {
+                throw new Error("叶子节点不支持添加")
+            }
+            getChild(name) {
+                return this.name == name ? this : null;
+            }
+            hardworking() {
+                console.log(this.name + "努力工作")
+            }
+        }
+
+
+        var p1 = new Leaf("张1");
+        var p2 = new Leaf("张2");
+        var p3 = new Leaf("张3");
+        var p4 = new Leaf("张4");
+        var p5 = new Leaf("张5");
+        var p6 = new Leaf("张6");
+        var p7 = new Leaf("张7");
+        var p8 = new Leaf("张8");
+        var p9 = new Leaf("张9");
+        var p10 = new Leaf("张10");
+        var p11 = new Leaf("张11");
+        var p12 = new Leaf("张12");
+
+        var dept1 = new Composite("开发部门1");
+        dept1.addChild(p1).addChild(p2).addChild(p3)
+        var dept2 = new Composite("销售部门1");
+        dept2.addChild(p4).addChild(p5).addChild(p6)
+        var dept3 = new Composite("开发部门2");
+        dept3.addChild(p7).addChild(p8).addChild(p9)
+        var dept4 = new Composite("销售部门2");
+        dept4.addChild(p10).addChild(p11).addChild(p12)
+
+        var org1 = new Composite("公司1")
+        org1.addChild(dept1).addChild(dept2)
+        var org2 = new Composite("公司2")
+        org2.addChild(dept3).addChild(dept4)
+
+        var org = new Composite("公司")
+        org.addChild(org1).addChild(org2)
+
+        org.hardworking("张3");
+
+    </script>
+</body>
+
+</html>

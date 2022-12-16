@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的本质</title>
+</head>
+<body>
+    <script>
+        // var name = 'head';
+        // name = 'lihao';
+        var cur = '完成了变量的声明和赋值';
+        var cur2;
+        cur2 = '分成两部分完成赋值的操作';
+        let cur3 = '变量的声明';
+        //使用const赋值的变量就是常量 不能在此修改数据的值
+        const cur4 = '常量的声明';
+        cur4 = 1;
+        function fn(params) {
+            var cur = 5;
+        }
+        fn();
+    </script>
+</body>
+</html>

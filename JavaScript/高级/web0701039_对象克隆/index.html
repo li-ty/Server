@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象克隆</title>
+</head>
+<body>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        // var arr1 = [1,2,3,4,5]
+        // var arr2 = arr1;
+        // arr2[1] = 4;
+        // console.log(arr1);
+        // console.log(arr2);
+
+        // function shallowClone(origin){
+        //     var result = {};
+        //     for(var key in origin){
+        //         if(origin.hasOwnProperty(key)){
+        //             result[key] = origin[key];
+        //         }
+        //     }
+        //     return result;
+        // }
+        // var origin = {
+        //     a:1,
+        //     b:[1,2,3],
+        //     c:{
+        //         d:'name'
+        //     }
+        // }
+        // // var result = shallowClone(origin);
+        // // console.log(origin);
+        // // console.log(result);
+
+        // // 浅克隆在克隆引用数据类型的时候 就会导致修改一个 元数据也跟着变化
+        // var result2 = Object.assign({},origin);
+        // console.log(origin);
+        // console.log(result2);
+        // result2.c.d = 'city';
+        // console.log(origin);
+        // console.log(result2);
+        //对象的深克隆
+        // var origin = {
+        //     a:1,
+        //     b:[1,2,3],
+        //     c:{
+        //         d:'name'
+        //     }
+        // }
+        // var result = JSON.parse(JSON.stringify(origin));
+        // console.log(result);
+        // result.c.d = 'city';
+        // console.log(origin);
+        // console.log(result);
+        // function Animal(name){
+        //     this.name = name;
+        // }
+        // var animal = new Animal('Tom');
+        // var origin = {
+        //     a:function(){
+        //         return 'a';
+        //     },
+        //     b:new RegExp('\d','g'),
+        //     c:animal
+        // }
+        // var result = JSON.parse(JSON.stringify(origin));
+        // console.log(origin);
+        // console.log(result);
+        // console.log(origin.c.constructor);
+        // console.log(result.c.constructor);
+
+        // var origin = {
+        //     a: 'name'
+        // };
+        // origin.b = origin;
+        // // TypeError: Converting circular structure to JSON
+        // var result = JSON.parse(JSON.stringify(origin));
+
+        var origin = {
+            a:1,
+            b:[1,2,3],
+            c:{
+                d:'name'
+            }
+        }
+        var result = $.extend(true,{},origin); 
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复制继承</title>
+</head>
+<body>
+    <script>
+        function Animal(parentAge){
+            //实例属性
+            this.name = 'Animal';
+            this.age = parentAge;
+            //实例函数
+            this.sleep = function(){
+                return this.name + '正在睡觉';
+            }
+        }
+        //原型函数
+        Animal.prototype.eat = function(food){
+            return this.name + '正在吃'+food;
+        }
+        //子类
+        function Cat(name,age){
+            var animal = new Animal(age);
+            //父类的属性和函数，全部添加到子类中
+            for(var key in animal){
+                if(animal.hasOwnProperty()){
+                    this[key] = animal[key];
+                }else{
+                    //原型对象上的属性和函数
+                    Cat.prototype[key] = animal[key];
+                }
+            }
+            //子类自身的属性
+            this.name = name;
+        }
+        Cat.prototype.eat = function(food){
+            return this.name + '正在吃'+food;
+        }
+
+        var cat = new Cat('tony',12);
+        console.log(cat.age);
+        console.log(cat.name);
+        console.log(cat.sleep());
+        console.log(cat.eat('猫粮'));
+        console.log(cat instanceof Cat);   // true
+        console.log(cat instanceof Animal);// false
+    </script>
+</body>
+</html>

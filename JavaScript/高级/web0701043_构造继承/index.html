@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造继承</title>
+</head>
+<body>
+    <script>
+        //父类
+        function Animal(age){
+            this.name = 'Animal';
+            this.age = age;
+            this.sleep = function(){
+                return this.name+'正在睡觉!';
+            }
+        }
+        //原型链的方法
+        Animal.prototype.eat = function(food){
+            return this.name + '正在吃' + food;
+        }
+        //子类
+        function Cat(name){
+            //核心 通过call函数改变Animal实例的属性和函数
+            Animal.call(this);
+            this.name = name || 'Tom';
+        }
+        //生成子类的实例
+        var cat = new Cat('tony');
+        console.log(cat.sleep());
+        // console.log(cat.eat());
+        // var cat = new Cat('tony');
+        console.log(cat instanceof Cat);
+        console.log(cat instanceof Animal);
+    </script>
+</body>
+</html>

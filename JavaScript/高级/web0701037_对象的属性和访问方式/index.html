@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的属性和访问方式</title>
+</head>
+<body>
+    <script>
+        // var person = {
+        //     name: 'head'
+        // };
+        // Object.defineProperty(person,'name',{
+        //     writable:false
+        // });
+        // person.name = 'head2';
+        // console.log(person.name);
+
+        // var person = {
+        //     _age:10
+        // };
+        // Object.defineProperty(person,"age",{
+        //     get:function(){
+        //         return this._age;
+        //     },
+        //     set:function(newValue){
+        //         if(newValue>10){
+        //             this._age = newValue;
+        //             console.log('设置成功');
+        //         }
+        //     }
+        // })
+        // console.log(person.age);
+        // person.age = 9;
+        // console.log(person.age);
+        // person.age = 19;
+        // console.log(person.age);
+
+        // var obj = {};
+        // obj.name = '张三';
+        // var myName = 'name';
+        // console.log(obj.myName);    
+        // console.log(obj[myName]);    
+
+        var obj = {};
+        // obj.1 = 1;
+        obj[2] = 2;
+        console.log(obj[2]);
+
+        var person = {};
+        person['first name'] ='head';
+        console.log(person['first name']); // head    
+        // console.log(person.first name);    
+    </script>
+</body>
+</html>

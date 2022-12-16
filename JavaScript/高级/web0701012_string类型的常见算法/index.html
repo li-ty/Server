@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string类型的常见算法</title>
+</head>
+<body>
+    <script>
+        var str = 'abcdef';
+        // function reverseString1(str){
+        //     return str.split('').reverse().join('');
+        // }
+        // console.log(reverseString1(str));
+        // function reverseString2(str){
+        //     var result = '';
+        //     for(var i=str.length-1;i>=0;i--){
+        //         result += str.charAt(i);
+        //     }
+        //     return result;
+        // }
+        // console.log(reverseString2(str));
+        //使用栈的方法模拟先进后出
+        function Stack(){
+            this.data = [];
+            this.top = 0;
+        }
+        //原型链上添加入栈和出栈的方法
+        Stack.prototype = {
+            //入栈 向栈里面添加元素
+            push:function push(element){
+                this.data[this.top++] = element;
+            },
+            //出栈 向栈外弹出元素
+            pop:function pop(){
+                return this.data[--this.top];
+            },
+            //返回栈内的元素 长度
+            length:function(){
+                return this.top;
+            }
+        }
+        function reverseString3(str){
+            var s = new Stack();
+            //将字符串转换成数组
+            var arr = str.split('');
+            var len = arr.length;
+            var result = '';
+            //将元素压入栈内
+            for(var i=0;i<len;i++){
+                s.push(arr[i]);
+            }
+            //输出一个元素
+            for(var j=0;j<len;j++){
+                result += s.pop(j);
+            }
+            return result;
+        }
+        console.log(reverseString3(str));
+    </script>
+</body>
+</html>

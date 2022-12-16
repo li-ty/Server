@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用数据类型</title>
+</head>
+<body>
+    <script>
+        // function Cat(name,age){
+        //     // console.log(this);
+        //     var Cat = {};
+        //     Cat.name = name;
+        //     Cat.age = age;
+        //     return Cat;
+        // }
+        // console.log(new Cat('head',18));
+
+        // var cat = new Cat();
+        
+        // var cat = {};
+        // cat.__proto__ = Cat.prototype;
+        // Cat.call(cat);
+
+        // //自定义一个new函数的功能
+        // function Cat(name,age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // Cat.prototype.sayHi = function(){
+        //     console.log('hi');
+        // }
+        // function New(){
+        //     var obj = {};
+        //     obj.__proto__ = Cat.prototype;
+        //     var res = Cat.apply(obj,arguments);
+        //     return typeof res === 'object'?res:obj;
+        // }
+        // New('mini',18).sayHi();
+
+        //hasOwnProperty
+        // var o = new Object();
+        // o.name = '自定义属性';
+        // console.log(o.hasOwnProperty('name'));
+        // //继承过来的方法
+        // console.log(o.hasOwnProperty('toString'));
+
+        // var Student = function(name){
+        //     this.name = name;
+        // }
+        // Student.prototype.sayHello = function(){
+        //     alert('hello'+this.name);
+        // }
+        // Student.prototype.age = '';
+        // var st = new Student('张三');
+        // console.log(st.hasOwnProperty('name'));
+        // console.log(st.hasOwnProperty('sayHello'));
+        // console.log(st.hasOwnProperty('age'));
+
+        // var array = [1,2,3];
+        // array.name = 'Array';
+        // console.log(array.propertyIsEnumerable('name'));    
+        // console.log(array.propertyIsEnumerable('join'));    
+        // console.log(array.propertyIsEnumerable('length'));    
+        // console.log(array.propertyIsEnumerable('toString'));    
+
+        // var Student = function(name){
+        //     this.name = name;
+        // }
+        // Student.prototype.sayHello = function(){
+        //     alert('hello'+this.name);
+        // }
+        // var a = new Student('tom');
+        // console.log(a.propertyIsEnumerable('name'));
+        // console.log(a.propertyIsEnumerable('age'));
+        // console.log(a.propertyIsEnumerable('sayHello'));
+
+        // var odj = {};
+        // var obj = Object.create(null,{
+        //     name:{
+        //         value:'tom',
+        //         writable:true,
+        //         enumerable:true,
+        //         configurable:true
+        //     },
+        //     age:{
+        //         value:12,
+        //         writable:true
+        //     }
+        // })
+        // console.log(obj.name);
+        // console.log(obj.age);
+        // obj.age = 22;
+        // console.log(obj.age);
+        // for(var p in obj){
+        //     console.log(p);
+        // }
+        // var obj = {};
+        // Object.defineProperties(obj,{
+        //     name:{
+        //         value:'tom',
+        //         enumerable:true
+        //     },
+        //     age:{
+        //         value:22,
+        //         enumerable:true
+        //     }
+        // })
+        // for(var p in obj){
+        //     console.log(p)
+        // }
+        // obj.age = 23;
+        // console.log(obj.age);
+
+        // function Person(name,age,gender){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.gender = gender;
+        //     this.getName = function(){
+        //         return this.name;
+        //     }
+        // }
+        // Person.prototype.eat = function(){
+        //     return '吃饭';
+        // }
+        // var p = new Person();
+        // console.log(Object.getOwnPropertyNames(p));
+
+        var obj = {
+            name:'tom',
+            age:22,
+            sayHello:function(){
+                alert('hello' + this.name);
+            }
+        }
+        console.log(Object.getOwnPropertyNames(obj));
+        console.log(Object.keys(obj));
+        Object.defineProperty(obj,'name',{
+            enumerable:false
+        })
+        console.log(Object.getOwnPropertyNames(obj));
+        console.log(Object.keys(obj));
+    </script>
+</body>
+</html>

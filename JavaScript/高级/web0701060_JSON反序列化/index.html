@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON反序列化</title>
+</head>
+<body>
+    <script>
+        // console.log(JSON.parse('[1,2,3,true]'));
+        // console.log(JSON.parse('{"name":"小明","age":14}'));
+        // console.log(JSON.parse('true'));
+        // console.log(JSON.parse('123.45'));
+
+        var jsonStr = '{"name":"cao teacher","age":15}';
+        var result = JSON.parse(jsonStr,function(key,value){
+            if(key === 'name'){
+                return value + '老师';
+            }
+            if(key === 'age'){
+                return value+'岁了';
+            }
+            return value;
+        })
+        console.log(result);
+
+        var json = '{"name":"cao teacher"}';
+        console.log(eval("("+json+")"));
+    </script>
+</body>
+</html>

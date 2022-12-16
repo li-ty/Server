@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组类型</title>
+</head>
+<body>
+    <script>
+        // var a = [];
+        // console.log(typeof a);
+        var a = [];
+        var b = {};
+        // console.log(a instanceof Array);
+        // console.log(b instanceof Object);
+        // console.log(a instanceof Object);
+        // console.log(b instanceof Array);
+        // function getDataType(o){
+        //     if(o instanceof Array){
+        //         return 'Array';
+        //     }else if (o instanceof Object){
+        //         return 'object';
+        //     }else{
+        //         return 'param is not Object type'
+        //     }
+        // }
+        // console.log(getDataType(b));
+        // console.log(a.constructor === Array);
+        // console.log(a.constructor === Object);
+        // console.log(b.constructor === Array);
+        // console.log(b.constructor === Object);
+
+        // function getDataType2(o){
+        //     var constructor = o.__proto__.constructor || o.constructor;
+        //     if(constructor === Array){
+        //         return 'Array';
+        //     }else if(constructor === Object){
+        //         return 'Object';
+        //     }else{
+        //         return 'param is not Object type' 
+        //     }
+        // }
+        // console.log(getDataType2(b));
+
+        // console.log(Object.prototype.toString.call(a));
+        // console.log(Object.prototype.toString.call(b));
+        // console.log(Object.prototype.toString.call(1));
+        // console.log(Object.prototype.toString.call('1'));
+        // console.log(Object.prototype.toString.call(undefined));
+        // console.log(Object.prototype.toString.call(true));
+
+        function getDataType3(o){
+            var result = Object.prototype.toString.call(o);
+            if(result === '[object Array]'){
+                return 'Array';
+            }else if(result === '[object Object]'){
+                return 'Object';
+            }else{
+                return 'param is not Object type' 
+            }
+        }
+        // console.log(getDataType3(b));
+        console.log(Array.isArray(b));
+    </script>
+</body>
+</html>

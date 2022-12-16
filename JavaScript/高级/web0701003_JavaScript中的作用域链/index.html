@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript中的作用域链</title>
+</head>
+<body>
+    <script>
+        // var a = 100;
+        // function fn(){
+        //     var b = 200;
+        //     console.log(a);
+        //     console.log(b);
+        //     function fn2(){
+        //         console.log(c);
+        //     }
+        //     fn2();
+        // }
+        // fn();
+
+        // var x = 10;
+        // function fn(){
+        //     console.log(x);
+        // }
+        // function show(f){
+        //     var x = 20;
+        //     (function(){
+        //         f();
+        //     })();
+        // }
+        // show(fn);
+
+        var a = 10;
+        function fn(){
+            var b = 20;
+            function bar(){
+                console.log(a+b);
+            }
+            return bar;
+        }
+        var x = fn(), b = 200;
+        x();
+    </script>
+</body>
+</html>

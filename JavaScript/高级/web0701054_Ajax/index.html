@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <script>
+        function createXMLHttp(){
+            //code for IE7+, Firefox, Chrome, Opera, Safari
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            //code for IE6, IE5
+            if(window.ActiveXObject){
+                try{
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }catch(e){
+                    try{
+                        xmlhttp = new ActiveXObject("msxml2.XMLHTTP");
+                    }catch(ex){
+
+                    }
+                }
+            }
+        }
+        var xhr = createXMLHttp();
+        xhr.open('post','/admin/w/saveUser',true);
+        var content = {userName:'cao teacher',password:'123456'};
+        xhr.send(content);
+        xhr.onreadystatechange = function () {
+            // 当readyStatew为4，且状态码为200时代表请求成功
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 处理响应值
+                document.write(xhr.responseText);
+            }
+        }
+    </script>
+</body>
+</html>

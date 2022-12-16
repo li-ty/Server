@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式括号的作用</title>
+</head>
+<body>
+    <script>
+        // var regexp = /(ab)+/g;
+        // var string = "ababa abbb ababa";
+        // console.log(string.match(regexp));
+
+        // var regexp = /^I love (javascript|Regular Expression)$/;
+        // console.log(regexp.test('I love javascript'));
+        // console.log(regexp.test('I love Regular Expression'));
+
+        // var regexp = /(\d{4})-(\d{2})-(\d{2})/;
+        // var string = "2022-06-12";
+        // console.log(regexp.exec(string));
+        // console.log(regexp.test(string));
+        // console.log(RegExp.$1);
+        // console.log(RegExp.$2);
+        // console.log(RegExp.$3);
+
+        // console.log(string.replace(regexp,"$2/$3/$1"));
+
+        // var regexp = /\d{4}(-|\/|\.)\d{2}(-|\/|\.)\d2/;
+        // var regexp2 = /\d{4}(-|\/|\.)\d{2}\1\d{2}/;
+        // var string1 = '2017-06-12';
+        // var string2 = '2017/06/12';
+        // var string3 = '2017.06.12';
+        // var string4 = '2017.06-12';
+        // console.log(regexp.test(string1));
+        // console.log(regexp.test(string2));
+        // console.log(regexp.test(string3));
+        // console.log(regexp2.test(string4));
+
+
+        // var regex = /^((\d)(\d(\d)))\1\2\3\4$/;
+        // var string = "1231231233";
+        // console.log( regex.test(string) ); // true
+        // console.log( RegExp.$1 ); // 123
+        // console.log( RegExp.$2 ); // 1
+        // console.log( RegExp.$3 ); // 23
+        // console.log( RegExp.$4 ); // 3
+
+        // var regex = /(1)(2)(3)(4)(5)(6)(7)(8)(9)(#) \10+/;
+        // var string = "123456789# ######"
+        // console.log( regex.test(string) );
+
+        // var regex = /\1\2\3\4\5\6\7\8\9/;
+        // console.log( regex.test("\1\2\3\4\5\6\7\8\9") ); 
+        // console.log( "\1\2\3\4\5\6\7\8\9".split("") );
+
+        // var regexp = /(?:ab)+/g;
+        // var string = "ababa abbb ababab";
+        // console.log(string.match(regexp));
+
+        //去除开头结尾的空白符
+        // function trim(str){
+        //     return str.replace(/^\s*(.*?)\s*$/g,"$1");
+        // }
+        // console.log(trim("   foobar   "));
+        //驼峰化
+        function camelize(str){
+            return str.replace(/[-_\s]+(.)?/g,function(match,c){
+                return c ? c.toUpperCase() : '';
+            })
+        }
+        console.log(camelize('-moz-transform'));
+        function dasherize(str) {
+            return str.replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
+        }
+        console.log( dasherize('MozTransform') ); // -moz-transform
+    </script>
+    
+</body>
+</html>

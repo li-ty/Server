@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul> -->
+    <div id="box">
+        <input type="button" id="add" value="新增" />
+        <input type="button" id="remove" value="删除" />
+        <input type="button" id="update" value="修改" />
+        <input type="button" id="search" value="查询" />
+    </div>
+    <script src="./EventUtil.js"></script>
+    <script>
+        
+        //普通ff
+        // var children = document.querySelectorAll('li');
+        // for(var i = 0;i<children.length;i++){
+        //     children[i].addEventListener('click',function(){
+        //         console.log(this.innerText);
+        //     })
+        // }
+        // var oUl = document.querySelector('ul');
+        // oUl.addEventListener('click',function(event){
+        //     // console.log(1);
+        //     var event = EventUtil.getEvent(event);
+        //     var target = EventUtil.getTarget(event);
+        //     console.log(target);
+        //     console.log(target.nodeName);
+        //     if(target.nodeName.toLowerCase() === 'li'){
+        //         console.log(target.innerText);
+        //     }
+        // })
+        // var add = document.querySelector('#add');
+        // var remove = document.querySelector('#remove');
+        // var update = document.querySelector('#update');
+        // var search = document.querySelector('#search');
+        // // 新增按钮绑定事件
+        // add.addEventListener('click', function () {
+        //     console.log('新增');
+        // });
+        // // 删除按钮绑定事件
+        // remove.addEventListener('click', function () {
+        //         console.log('删除');
+        // });
+        // // 修改按钮绑定事件
+        // update.addEventListener('click', function () {
+        //     console.log('修改');
+        // });
+        // // 查询按钮绑定事件
+        // search.addEventListener('click', function () {
+        //     console.log('查询');
+        // });
+
+        var parent = document.querySelector('#box');
+        parent.addEventListener('click',function(event){
+            var event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            switch(target.id){
+                case 'add':
+                    console.log('新增');
+                break;
+                case 'remove':
+                    console.log('删除');
+                break;
+                case 'update':
+                    console.log('修改');
+                break;
+                case 'search':
+                    console.log('查询');
+                break;
+            }
+        })
+    </script>
+</body>
+</html>

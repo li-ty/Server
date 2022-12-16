@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./utils.js"></script>
+    <script>
+        //引出抽象类概念，抽象类的方法不可被执行，只能被子类继承实现。
+        function CarShop() { };
+        CarShop.prototype = {
+            constructor: CarShop,
+            sellCar: function (type) {
+                this.abstractSellCar();
+            },
+            abstractSellCar: function(){
+                throw new Error("this method is abstract");
+            }
+        };
+
+        function BenzCarShop(){}
+        BH.extend(BenzCarShop, CarShop);
+        BenzCarShop.prototype = {
+            constructor: BenzCarShop,
+            //实现抽象方法
+            sellCar: function (type) {
+                var car = CarFactory.createCar(type);
+                return car;
+            }
+        };
+
+        function BmwCarShop(){}
+        BH.extend(BmwCarShop, CarShop);
+        BmwCarShop.prototype = {
+            constructor: BmwCarShop,
+            //实现抽象方法
+            sellCar: function (type) {
+                var car = CarFactory.createCar(type);
+                return car;
+            }
+        };
+
+
+
+        var CarFactory = {
+            createCar: function(type){
+                var car;
+                switch (type) {
+                    case "Benz": car = new Benz(); break;
+                    case "Bmw": car = new Bmw(); break;
+                    case "Audi": car = new Audi(); break;
+                }
+                BH.Interface.ensureImplements(car, CarInterface);//这行居然有bug
+                return car;
+            }
+        };
+
+        var CarInterface = new BH.Interface('CarInterface', ['start', 'run']);
+
+        function BaseCar(){};
+        BaseCar.prototype = {
+            constructor: BaseCar,
+            start: function(){
+                console.log(this.constructor.name + " start")
+            },
+            run: function(){
+                console.log(this.constructor.name + " run") 
+            }
+        };
+
+        function Benz() { };
+        //BH.extend(Benz, BaseCar);
+        Benz.prototype.start = function () { console.log("Benz start"); };
+        Benz.prototype.run = function () { console.log("Benz run"); };
+
+        function Bmw() { };
+        //BH.extend(Benz, BaseCar);
+        Bmw.prototype.start = function () { console.log("Bmw start"); };
+        Bmw.prototype.run = function () { console.log("Bmw run"); };
+
+        function Audi() { };
+        BH.extend(Benz, BaseCar);
+        //Audi.prototype.start = function () { console.log("Audi start"); };
+        //Audi.prototype.run = function () { console.log("Audi run"); };
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

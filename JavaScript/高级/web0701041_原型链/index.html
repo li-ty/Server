@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+</head>
+<body>
+    <script>
+        // function Person(name){
+        //     this.name = name;
+        // };
+        // Person.prototype.age = 12;
+        // var person = new Person('head');
+        // console.log(person.hasOwnProperty('name'));
+        // console.log(person.hasOwnProperty('age'));
+
+        // console.log(person.__proto__ === Person.prototype);
+        // console.log(Person.prototype.__proto__ === Object.prototype);
+        // console.log(Object.prototype.__proto__ === null);
+        // console.log(person.toString());
+        // console.log(Object.prototype.toString());
+
+        // var str = new String('cao teacher');
+        // console.log(str);
+        // console.log(str.substring(1,3));    
+
+        Function.prototype.a = 'a';
+        Object.prototype.b = 'b';
+        function Person(){};
+        var p = new Person();
+        console.log(p.__proto__ === Person.prototype);
+        console.log(Person.prototype.__proto__ === Object.prototype );
+        console.log('p.a',p.a);
+        console.log('p.b',p.b);
+        
+    </script>
+</body>
+</html>

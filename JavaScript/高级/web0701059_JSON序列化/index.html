@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON序列化</title>
+</head>
+<body>
+    <script>
+        //JSON.stringify
+        // var obj = {
+        //     name:'cao teacher',
+        //     age:15,
+        //     address:String('上海'),
+        //     interest:['basketball','football'],
+        //     email:'zhoukeke@163.com'
+        // }
+        // console.log(JSON.stringify(obj));
+        // function replacerFn(key,value){
+        //     if(typeof value === 'string'){
+        //         return value.toUpperCase();
+        //     }
+        //     return value;
+        // }
+        // console.log(JSON.stringify(obj,replacerFn));
+        // console.log(JSON.stringify(obj,['name','age']));
+
+        //toJSON函数
+        var obj = {
+            name:'cao teacher',
+            age:15,
+            address:String('上海'),
+            interest:['basketball','football'],
+            email:'zhoukeke@163.com',
+            toJSON:function(){
+                return{
+                    Name:this.name,
+                    Age:this.age
+                }
+            }
+        }
+        console.log(JSON.stringify(obj));
+    </script>
+</body>
+</html>

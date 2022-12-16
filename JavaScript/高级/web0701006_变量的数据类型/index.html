@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的数据类型</title>
+</head>
+<body>
+    <script>
+        // //没有赋值的变量
+        // var a;
+        // console.log(a);
+        // //不存在的对象属性
+        // var obj = {
+        //     name:'head'
+        // }
+        // console.log(obj.age);
+        // //函数没有明确的返回值
+        // function foo(params) {
+            
+        // }
+        // console.log(foo());
+        // //函数的参数没有传值的情况
+        // function foo2(param1,param2,param3) {
+        //     console.log(param3);
+        // }
+        // foo2(1,2);
+        // //typeof 返回变量的数据类型
+        // var num = null;
+        // console.log(typeof num);
+
+        // //获取节点节点不存在
+        // var ad = document.getElementById('ad');
+        // console.log(ad);     
+        // //正则匹配 匹配不到结果
+        // var test = 'ccc';
+        // console.log(test.match(/a/));  
+        // console.log(null === undefined); 
+        // console.log(window);
+        // console.log(Object.prototype.toString.call(undefined));
+        // console.log(Object.prototype.toString.call(null));
+        // console.log(undefined+'string');
+        // console.log(null+'string');
+        // console.log(undefined+0);
+        // console.log(null+0);
+        //任何非空的字符串会转换成真
+        // var a = ' ';
+        //0和NaN会转换成false
+        // var a = -0.123;
+        //不是null类型的对象都会转换成真
+        // var a = {};
+        //函数类型都会转换成真
+        var a = function foo(params) {
+            
+        }
+        if(a){
+            console.log(true);
+        }else{
+            console.log(false);
+        }
+    </script>
+</body>
+</html>

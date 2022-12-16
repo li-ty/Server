@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求数组中的最大和最小值</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5,6,7,8,9];
+        Array.prototype.min = function(){
+            var min = this[0];
+            var len = this.length;
+            for(var i=0;i<len;i++){
+                if(this[i]<min){
+                    min = this[i]
+                }
+            }
+            return min;
+        }
+        Array.prototype.max = function(){
+            var max = this[0];
+            var len = this.length;
+            for(var i=0;i<len;i++){
+                if(this[i]>max){
+                    max = this[i]
+                }
+            }
+            return max;
+        }
+        // console.log(arr.min());
+        // console.log(arr.max());
+        // console.log( Math.min(1,2));
+        // console.log( Math.max(1,2));
+        // console.log( Math.max(arr));
+
+        Array.min = function(array){
+            return Math.min.apply(Math,array);
+        }
+        Array.max = function(array){
+            return Math.max.apply(Math,array);
+        }
+        // console.log(Array.min(arr));
+        // console.log(Array.max(arr));
+
+        Array.min = function(){
+            return Math.min.apply({},this);
+        }
+        Array.max = function(){
+            return Math.max.apply({},this);
+        }
+        // console.log(arr.min());
+        // console.log(arr.max());
+        Array.prototype.min = function(){
+            return this.reduce(function(pre,cur){
+                return pre > cur ? cur : pre;
+            })
+        }
+        Array.prototype.max = function(){
+            return this.reduce(function(pre,cur){
+                return pre > cur ? pre : cur;
+            })
+        }
+        // console.log(arr.min());
+        // console.log(arr.max());
+        function sortFn(a,b){
+            return a-b;
+        }
+        var arrSort = arr.sort(sortFn);
+        // console.log(arrSort[0]);
+        // console.log(arrSort[arrSort.length-1]);
+        console.log(Math.min(...arr));
+        console.log(Math.max(...arr));
+    </script>
+</body>
+</html>

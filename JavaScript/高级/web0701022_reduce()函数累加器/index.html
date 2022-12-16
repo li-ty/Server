@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce()函数累加器</title>
+</head>
+<body>
+    <script>
+        // var arr = [1,7,8,3,6];
+        // var sum = arr.reduce(function(accumulator,currentValue){
+        //     return accumulator + currentValue;
+        // },0);
+        // // console.log(sum);
+        // var countOccurrences = function(arr){
+        //     return arr.reduce(function(accumulator,currentValue){
+        //         accumulator[currentValue] ? accumulator[currentValue]++ : accumulator[currentValue] = 1;
+        //         return accumulator;
+        //     },{});
+        // }
+        // console.log(countOccurrences([1, 2, 3, 2, 2, 5, 1]));
+        var items = [{price: 10}, {price: 50}, {price: 100}];
+        var reducers = {
+            totalInEuros : function(state, item) {
+                return state.euros += item.price * 0.1265;
+            },
+            totalInDollars : function(state, item) {
+                return state.dollars += item.price * 0.1487;
+            }
+        };
+        var manageReducers = function(reducers) {
+            return function(state, item) {
+                return Object.keys(reducers).reduce(
+                        function(nextState, key) {
+                            reducers[key](state, item);
+                                return state;
+                        },
+                    {}
+                );
+            }
+        };
+        //然后对上面的一组人民币值items数组进行运算。
+        var bigTotalPriceReducer = manageReducers(reducers);
+        var initialState = {euros: 0, dollars: 0};
+        var totals = items.reduce(bigTotalPriceReducer, initialState);
+        console.log(totals);
+    </script>
+</body>
+</html>

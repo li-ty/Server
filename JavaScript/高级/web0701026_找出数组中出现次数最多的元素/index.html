@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找出数组中出现次数最多的元素</title>
+</head>
+<body>
+    <script>
+        // function ﬁndMost1(arr){
+        //     if(!arr.length) return;
+        //     if(arr.lenght === 1) return 1;
+        //     var res = {};
+        //     for(var i=0;i<arr.length;i++){
+        //         if(!res[arr[i]]){
+        //             res[arr[i]] = 1;
+        //         }else{
+        //             res[arr[i]]++;
+        //         }
+        //     }
+        //     //遍历res
+        //     var keys = Object.keys(res);
+        //     var maxNum = 0,maxEle;
+        //     for(var i=0;i<keys.length;i++){
+        //         if(res[keys[i]]>maxNum){
+        //             maxNum = res[keys[i]];
+        //             maxEle = keys[i];
+        //         }
+        //     }
+        //     return '出现最多的元素为' +maxEle+'出现次数为'+maxNum;
+        // }
+        // var arr1 = [3, 5, 6, 5, 9, 8, 10, 5, 7, 7, 10, 7, 7, 10, 10, 10, 10, 10];
+        // console.log(ﬁndMost1(arr1));
+
+        // function ﬁndMost2(arr){
+        //     var h = {};
+        //     var maxNum = 0;
+        //     var maxEle = null;
+        //     for(var i=0;i<arr.length;i++){
+        //         var a = arr[i];
+        //         h[a] === undefined ? h[a] = 1 :(h[a]++);
+        //         //次数最大值比较
+        //         if(h[a]>maxNum){
+        //             maxNum = h[a];
+        //             maxEle = a;
+        //         }
+        //     }
+        //     return '出现最多的元素为' +maxEle+'出现次数为'+maxNum;
+        // }
+        // var arr1 = [3, 5, 6, 5, 9, 8, 10, 5, 7, 7, 10, 7, 7, 10, 10, 10, 10, 10];
+        // console.log(ﬁndMost2(arr1));
+
+        // function ﬁndMost3(arr){
+        //     var maxEle;
+        //     var maxNum = 1;
+        //     var obj = arr.reduce(function(p,k){
+        //         p[k]?p[k]++:p[k]=1;
+        //         if(p[k]>maxNum){
+        //             maxEle = k;
+        //             maxNum++;
+        //         }
+        //         return p;
+        //     },{});
+        //     return '出现最多的元素为' +maxEle+'出现次数为'+maxNum;
+        // }
+        // var arr1 = [3, 5, 6, 5, 9, 8, 10, 5, 7, 7, 10, 7, 7, 10, 10, 10, 10, 10];
+        // console.log(ﬁndMost3(arr1));
+
+        Array.prototype.getMost4 = function () {
+            var obj = this.reduce((p, n) =>
+                    (p[n]++ || (p[n] = 1), (p.max = p.max >= p[n] ? p.max : p[n]),
+                            (p.key = p.max > p[n] ? p.key : n), p),
+            {});
+            return '次数最多的元素为:' + obj.key + '，次数为:' + obj.max;
+        }
+        var arr4 = [3, 5, 6, 5, 9, 8, 10, 5, 7, 7, 10, 7, 7, 10, 10, 10, 10, 10];
+        console.log(arr4.getMost4());
+    </script>
+</body>
+</html>

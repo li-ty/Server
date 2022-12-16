@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的定义与调用</title>
+</head>
+<body>
+    <script>
+        // //函数声明
+        // function sum(num1,num2){
+        //     return num1 + num2;
+        // }
+        // sum(1,2);
+        // //函数表达式
+        // var sum = function(num1,num2){
+        //     return num1 + num2;
+        // }
+        // sum(1,2);
+
+        // var add = new Function("num1","num2","return num1+num2");
+        // var  y = 'global';    
+        // function construct(){
+        //     var y = 'local';
+        //     return new Function('return y');
+        // }
+        // console.log(construct()());
+        // function fib(n){
+        //     if( n==0 || n==1 ){
+        //         return 1;
+        //     }
+        //     return fib(n-1) + fib(n-2);
+        // }
+        // console.log(fib(15));
+
+        // var fibonacci = function(num){
+        //     if(num === 1 || num ===0){
+        //         return 1;
+        //     }
+        //     return fibonacci(num-2)+fibonacci(num-1);
+        // }
+        // console.log(fibonacci(15));
+
+        // var Person = (function(){
+        //     var _name = "";
+        //     return{
+        //         getName:function(){
+        //             return _name;
+        //         },
+        //         setName:function(newName){
+        //             _name = newName;
+        //         }
+        //     }
+        // }());
+        // Person.setName('cao teacher');
+        // console.log(Person.getName());
+
+        // var obj = {
+        //     name:'cao teacher',
+        //     getName:function(){
+        //         return this.name;
+        //     },
+        //     setName:function(name){
+        //         this.name = name;
+        //         return this;    //在函数内部返回函数对象本身
+        //     }
+        // }
+        // console.log(obj.setName('cao').getName());
+
+        // function Person(name){
+        //     this.name = name;
+        // }
+        // Person.prototype.getName = function(){
+        //     return this.name;
+        // }
+        // var p = new Person('cao teacher');
+        // console.log(p.getName());
+
+        // function sum(num1,num2){
+        //     return num1+num2;
+        // }
+        // var Person = {};
+        // console.log(sum.call(Person,1,2));
+        // console.log(sum.apply(Person,[1,2]));
+
+        // function (x) {
+        //     alert(x);
+        // }(5);
+        var aa = function (x) {
+            console.log(x);
+        }(1);
+        true && function (x) {
+            console.log(x);
+        }(2);
+        0, function (x) {
+            console.log(x);
+        }(3);
+        !function (x) {
+            console.log(x);
+        }(4);
+        ~function (x) {
+            console.log(x);
+        }(5); // 5
+
+        -function (x) {
+            console.log(x);
+        }(6); // 6
+
+        +function (x) {
+            console.log(x);
+        }(7); // 7
+
+        new function (){
+            console.log(8); // 8
+        };
+        new function (x) {
+            console.log(x);
+        }(9); // 9
+    </script>
+</body>
+</html>

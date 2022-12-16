@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax进度事件</title>
+</head>
+<body>
+    <script>
+        //创建XMLHttpRequest对象
+        function createXMLHttp(){
+            //code for IE7 Firefox Chrome Opera Safari
+            var xmlhttp;
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            //code for IE6 IE5
+            if(window.ActiveXObject){
+                try{
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }catch(e){
+                    try{
+                        xmlhttp = new ActiveXObject("msxm12.XMLHTTP");
+                    }
+                    catch(ex){}
+                }
+            }
+            return xmlhttp;
+        }
+        var xhr = createXMLHttp();
+        xhr.onloadstart = function(event){    
+            console.log('loadstart事件-开始接受数据');
+        };
+        xhr.onerror = function(event){    
+            console.log('error事件-请求异常');
+        }
+        xhr.ontimeout=function(){    
+            console.log('timeout事件-请求超时');
+        }
+        xhr.onload=function(event){    
+            //方式1获取status    
+            var status = xhr.status;   
+            //方式2获取status    
+            var status = event.target.status;    
+            console.log('load事件状态码：'+status);    
+            if(status >=200 && status<300 || status ===304){        
+                console.log('load事件-数据接收完成');    
+            }
+        };
+        xhr.onloadend = function(){    
+            console.log('loadend事件-通信完成');
+        }
+        xhr.open('post','/saveUser2',true);
+        xhr.send();
+    </script>
+</body>
+</html>

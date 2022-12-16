@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String类型详解</title>
+</head>
+<body>
+    <script>
+        // console.log(null+'');
+        // console.log(undefined+'');
+        // console.log([1,2,3]+'');
+        // console.log(true+'');
+        //字符串的声明方法
+        // var str = 'hello string';
+        // var str2 = "hello string2";
+        // // var str3 = '"
+        // var str4 = String(12);
+        // var str5 = String(true);
+        // var str6 = String(null);
+        // var str7 = String(undefined);
+        // console.log(typeof str4);
+        // console.log(typeof str5);
+        // console.log(typeof str6);
+        // console.log(typeof str7);
+
+        // var obj = {
+        //     age:21,
+        //     valueOf:function(){
+        //         return [];
+        //     },
+        //     toString:function(){
+        //         return [];
+        //     }
+        // }
+        // //转换的时候 先调用toString方法然后在调用我们的valueOf方法
+        // console.log(String(obj));
+
+        //构造函数 new String();
+        // new String('hello JavaScript');
+
+        // var str = 'hello';
+        // var str2 = String(str);
+        // var str3 = String('hello');
+        // var str4 = new String(str);
+        // var str5 = new String(str);
+        // var str6 = new String('hello');
+        // console.log(str === str2);
+        // console.log(str3 === str2);
+        // console.log(str3 === str4);
+        // console.log(str5 === str4);
+        // console.log(str5 === str6);
+
+        var s1 = '2+2';
+        var s2 = new String('2+2');
+        console.log(eval(s1));
+        console.log(eval(s2));
+    </script>
+</body>
+</html>

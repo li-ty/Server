@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLCollection对象与NodeList对象</title>
+</head>
+<body>
+    <!-- <div id="main">
+        <p class="first">first</p>
+        <p class="second">
+            second
+            <span>  
+                content
+            </span>
+        </p>
+    </div> -->
+
+    <!-- <form id="main">
+        <input type="text" id="username">
+        <input type="text" name="username">
+        <input type="text" name="password">
+    </form> -->
+    <!-- <form id="main">
+        <input type="text" id="username">
+        <input type="text" name="password">
+    </form> -->
+    <ul id="main">
+        <li>文本1</li>
+        <li>文本2</li>
+        <li>文本3</li>
+        <li>文本4</li>
+        <li>文本5</li>
+    </ul>
+    <script>
+        // var main = document.getElementById("main");
+        // console.log(main.children.item(0));
+        // console.log(main.children.item(2));
+        // console.log(main.childNodes);
+
+        // var main = document.getElementById("main").children;
+        // console.log(main.namedItem('username'));
+
+        // var mainChildren = document.getElementById('main').children;
+        // console.log(mainChildren.length);
+        // var newInput = document.createElement('input');
+        // main.appendChild(newInput);
+        // console.log(mainChildren.length);
+
+        // mainChildren = Array.prototype.slice.call(mainChildren,0);
+        // mainChildren.splice(1,1);
+        // console.log(mainChildren.length);
+        // var newInput2 = document.createElement('input');
+        // main.appendChild(newInput2);
+        // console.log(mainChildren.length);
+
+        var main = document.getElementById('main');
+        var lis = document.querySelectorAll('ul li');
+        console.log(lis.length);
+        var newLi = document.createElement('li');
+        var text = document.createTextNode('文本8');
+        newLi.appendChild(text);
+        main.appendChild(newLi);
+        console.log(lis.length);
+        console.log(document.querySelectorAll('ul li').length);
+    </script>
+</body>
+</html>

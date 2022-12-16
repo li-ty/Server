@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax跨域解决方案</title>
+</head>
+<body>
+    <form name="userForm">
+        学号：<input type="text" id="studentNo" name="studentNo">
+        搜索：<input type="button" value="搜索" id="btn">
+    </form>
+    <script>
+        window.onload=function(){
+            var btn = document.querySelector('#btn');
+            btn.addEventListener('click',function(){
+                sendRequest();
+            });
+            function sendRequest(){
+                //输入参数--学号
+                var studentNo = document.querySelector('#studentNo').value;
+                // console.log(studentNo);
+                //创建XMLHttpRequest对象
+                function createXMLHttp(){
+                    //code for IE7 Firefox Chrome Opera Safari
+                    var xmlhttp;
+                    if(window.XMLHttpRequest){
+                        xmlhttp = new XMLHttpRequest();
+                    }
+                    //code for IE6 IE5
+                    if(window.ActiveXObject){
+                        try{
+                            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        }catch(e){
+                            try{
+                                xmlhttp = new ActiveXObject("msxm12.XMLHTTP");
+                            }
+                            catch(ex){}
+                        }
+                    }
+                    return xmlhttp;
+                }
+                var xhr = createXMLHttp();
+                // console.log(xhr)
+                //跨域请求
+                let url = 'http://localhost:3000/getUserByStudentNo?studentNo='+studentNo;
+                xhr.open('get',url,true);
+                xhr.send();
+                xhr.onreadystatechange = function(){
+                    //当readyState为4，且状态码为200时代表请求成功
+                    if(xhr.readyState ===4 && xhr.status ===200){
+                        //处理响应值
+                        console.log(xhr.responseText);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

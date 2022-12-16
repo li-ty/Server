@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this使用详解</title>
+</head>
+<body>
+    <input type="button" name="byn" id="btn" value="点击">
+    <script>
+        // function Person(name){
+        //     this.name = name;
+        // }
+        // // var p = new Person('cao teacher');
+        // // console.log(p.name);
+        // Person('caoteacher');
+        // console.log(window.name);
+
+        //this指向全局对象
+        // var value = 10;
+        // var obj = {
+        //     value:100,
+        //     method:function(){
+        //         var foo = function(){
+        //             console.log(this.value);
+        //             console.log(this);
+        //         };
+        //         foo();
+        //         return this.value;
+        //     }
+        // }
+        // obj.method();
+        // console.log(obj.method());
+
+        //this指向对象实例
+        // var number = 10;
+        // function Person(){
+        //     //复写全局变量
+        //     number = 20;
+        //     //实例变量
+        //     this.number = 30;
+        // }
+        // //原型函数
+        // Person.prototype.getNumber = function(){
+        //     return this.number;
+        // }
+        // //通过new的操作符获取对象的实例
+        // var p = new Person();
+        // console.log(p.getNumber());
+
+        //this重新绑定对象
+        // var value = 10;
+        // var obj = {
+        //     value:20
+        // };
+        // //全局函数
+        // var method = function(){
+        //     console.log(this.value);
+        // }
+        // console.log(method());
+        // console.log(method.call(obj));
+        // console.log(method.apply(obj));
+        // var newMethod = method.bind(obj);
+        // console.log(newMethod());
+
+        // var user = {
+        // data: [
+        //     {name: "kingx1", age: 11},
+        //     {name: "kingx2", age: 12}
+        // ],
+        // clickHandler: function (event) {
+        //     var randomNum = ((Math.random() * 2 | 0) + 1) - 1;
+        //     // 从data数组里随机获取name属性和age属性，并输出
+        //     console.log(this.data[randomNum].name + " " + this.data[randomNum].age);
+        // }
+        // };
+        // var button = document.getElementById('btn');
+        // button.onclick = user.clickHandler.bind(user);
+
+        function f(k){
+            //window.m = 1;
+            this.m = k;
+            return this;
+        }
+        var m = f(1);
+        var n = f(2);
+
+        console.log(m.m);
+        console.log(n.m);
+    </script>
+</body>
+</html>

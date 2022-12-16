@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数</title>
+</head>
+<body>
+    <script>
+        // function fn1(){
+        //     var param = 'hello';
+        //     fn2(param);
+        //     // console.log(arg);
+        // }
+
+        // function fn2(arg){
+        //     console.log(arg);
+        //     console.log(param);
+        // }
+        // fn1();
+
+        // var arg = 1;
+        // function fn(param){
+        //     param = 2;
+        // }    
+        // fn(arg);
+        // console.log(arg);
+
+        // var arg = {name:'cao teacher'};
+        // var arg2 = {name:'cao teacher2'};
+        // function fn(){
+        //     var param = arguments[0];
+        //     param.name = 'cao teacher2';
+        //     param = {};
+        // }
+        // fn();
+        // console.log(arg);
+
+        // function foo(){
+        //     // console.log(arguments.length);
+        //     console.log(arguments[0]);
+        //     console.log(arguments[1]);
+        //     console.log(arguments[2]);
+        //     console.log(arguments[3]);
+        //     function foo2(){
+        //         // console.log(arguments.length);
+        //     }
+        //     foo2();
+        // }
+        // foo(1,2,3);
+        // function foo(a,b,c){
+        //     console.log(arguments.length);
+        //     arguments[0] = 11;
+        //     console.log(a);
+        //     b = 12;
+        //     console.log(arguments[1]);
+        //     arguments[2] = 3;
+        //     console.log(c);
+        //     c = 12;
+        //     console.log(arguments[2]);
+        //     console.log(arguments.length);
+        // }
+        // foo(1,2);
+
+        // function foo(){
+        //     console.log(arguments.callee === foo);
+        // }
+        // foo();
+
+        // function create(){
+        //     return function(n){
+        //         if(n<=1){
+        //             return 1;
+        //         }
+        //         return n * arguments.callee(n-1);
+        //     }
+        // }
+        // var result = create()(5)
+        // console.log(result);
+
+        // var sillyFunction = function(recursed){
+        //     if(!recursed){
+        //         console.log(this);
+        //         return arguments.callee(true);
+        //     }
+        //     console.log(this);
+        // }
+        // sillyFunction();
+
+        // function f(x,y,z){
+        //     if(arguments.length !== 3){
+        //         throw new Error("必须传入三个参数");
+        //     }
+        // }
+        // f(1,2);
+
+        // function joinStr(str){
+        //     var strArr = Array.prototype.slice.call(arguments,1);
+        //     return strArr.join(str);
+        // }
+        // console.log('-','orange','green','blue','yellow','black');
+        // console.log('+','orange','green','blue','yellow','black');
+
+        // function sum(num1,num2){
+        //     return num1+num2;
+        // }
+        // function sum(num1,num2,num3){
+        //     return num1+num2+num3;
+        // }
+        // console.log(sum(1,2));
+        // console.log(sum(1,2,3));
+
+        function sum(){
+            var arr = Array.prototype.slice.call(arguments);
+            return arr.reduce(function(pre,cur){
+                return pre+cur;
+            },0)
+        }
+        console.log(sum(1,2));
+        console.log(sum(1,2,3));
+        console.log(sum(1,2,3,4));
+    </script>
+</body>
+</html>

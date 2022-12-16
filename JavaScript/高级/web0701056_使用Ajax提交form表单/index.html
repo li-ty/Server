@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="userForm" id="userForm">
+		用户名：<input type="text" name="username" id="username"><br/>
+		密码：	<input type="password" name="password" id="password"><br/>
+		电话：	<input type="text" name="telphone" id="telphone"><br/>
+		邮箱：	<input type="text" name="email" id="email"><br/>
+		<input type="button" value="提交" id="submit">
+		<input type="button" value="取消" id="cancel">
+	</form>
+    <script>
+        var submitBtn = document.getElementById('submit');
+        //1.绑定事件触发ajax请求
+        submitBtn.addEventListener('click',function(){
+            ajaxSubmitForm();
+        })
+    function ajaxSubmitForm(){
+        //2.创建xmlHttpRequest对象
+        function createXMLHttp(){
+            var xmlhttp;
+            //code for IE7+, Firefox, Chrome, Opera, Safari
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            //code for IE6, IE5
+            if(window.ActiveXObject){
+                try{
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }catch(e){
+                    try{
+                        xmlhttp = new ActiveXObject("msxml2.XMLHTTP");
+                    }catch(ex){
+
+                    }
+                }
+            }
+            return xmlhttp;
+        }
+        var xhr = createXMLHttp();
+        // console.log(xhr);
+        //3.建立链接
+        xhr.open('post','/saveUser',true);
+        //4.设置请求头
+        xhr.setRequestHeader('Content-type','application/json;charset=UTF-8');
+        //5.获取数据
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var telphone = document.getElementById('telphone').value;
+        var email = document.getElementById('email').value;
+        //将数据存储在对象中
+        var content = {
+            username:username,
+            password:password,
+            telphone:telphone,
+            email:email
+        }
+        //在请求头中设置了格式是json所以需要将content处理成json格式
+        content = JSON.stringify(content);
+        //6.发送请求
+        xhr.send(content);
+        //7.处理响应
+        xhr.onreadystatechange=function(){
+            // 当readyStatew为4，且状态码为200时代表请求成功
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 处理响应值
+                document.write(xhr.responseText);
+            }
+        }
+    };
+    </script>
+</body>
+</html>

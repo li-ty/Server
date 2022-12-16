@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计字符串中出现最多的字符及出现的次数</title>
+</head>
+<body>
+    <script>
+        //统计字符串中出现最多的字符及出现的次数
+        function getMaxCount(str){
+            var json = {};
+            //遍历str的没一个字符得到以key-value的对象
+            for(var i=0;i<str.length;i++){
+                //判断json对象里面是否有当前的对象
+                if(!json[str.charAt(i)]){
+                    //如果不存在 就将当前值进行添加
+                    json[str.charAt(i)] = 1;
+                }else{
+                    //如果存在，则让value+1
+                    json[str.charAt(i)]++;
+                }
+            }
+            var maxCountChar = '';
+            var maxCount = 0;
+            //遍历json对象找出最大的值
+            for(var key in json){
+                //如果当前项大于下一项
+                if(json[key]>maxCount){
+                    //就让当前值更改为最多的次数
+                    maxCount = json[key];
+                    maxCountChar = key;
+                }
+            }
+            return '出现做多的值是'+maxCountChar+'出现做多的次数是'+maxCount;
+        }
+        var str = 'helloJavascripthellohtmlhellocss';
+        // console.log(getMaxCount(str));
+
+        function getMaxCount2(str){
+            var json = {};
+            var maxCount = 0,maxCountChar = '';
+            str.split('').forEach(function(item){
+                //判断json对象中是否有对应的key
+                if(!json.hasOwnProperty(item)){
+                    //当前字符出现的次数
+                    var number = str.split(item).length - 1;
+                    //直接与出现次数最大值比较 并进行更新
+                    if(number > maxCount){
+                        //写入json对象
+                        json[item] = number;
+                        //更新值
+                        maxCount = number;
+                        maxCountChar = item;
+                    }
+                }
+            })
+            return '出现做多的值是'+maxCountChar+'出现做多的次数是'+maxCount;
+        }
+        // console.log(getMaxCount2(str));
+
+        function getMaxCount3(str){
+            //定义两个遍历分别表示出现最大次数和对应的字符
+            var maxCount = 0,maxCountChar = '';
+            //先处理成数组，调用sort()函数排序，在处理成字符串
+            str = str.split('').sort().join('');
+            for(var i = 0,j = str.length;i<j;i++){
+                var char = str[i];
+                //计算每个字符串出现的次数
+                var charCount = str.lastIndexOf(char)-i+1;
+                //与次数最大值比较
+                if(charCount>maxCount){
+                    //更新maxCounthe maxCountChar的值
+                    maxCount = charCount;
+                    maxCountChar = char;
+                }
+                //变更索引为字符出现的最后位置
+                i = str.lastIndexOf(char);
+            }
+            //最终返回出现最多的值以及出现的次数
+            return '出现最多的值是：'+maxCountChar+'出现的次数为：'+maxCount;
+        }
+        // console.log(getMaxCount3(str));
+
+        function getMaxCount4(str){
+            var maxCount = 0,maxCountChar = '';
+            str = str.split('').sort().join('');
+            var arr = str.match(/(\w)\1+/g);
+            for(var i=0;i<arr.length;i++){
+                var length = arr[i].length;
+                if(length>maxCount){
+                    maxCount = length;
+                    maxCountChar = arr[i][0];
+                }
+            }
+            return '出现最多的值是：'+maxCountChar+'出现的次数为：'+maxCount;
+        }
+        // console.log(getMaxCount4(str));
+
+        function getMaxCount5(str){
+            var maxCount = 0,maxCountChar = '';
+            while(str){
+                //记录原始字符的长度
+                var originCount = str.length;
+                //当前处理的字符
+                var char = str[0];
+                var reg = new RegExp(char,'g');
+                str = str.replace(reg,'');
+                var remainCount = str.length;
+                //当前字符串出现的次数
+                var charCount = originCount-remainCount;
+                if(charCount > maxCount){
+                    maxCount = charCount;
+                    maxCountChar = char;
+                }
+            }
+            return '出现最多的值是：'+maxCountChar+'出现的次数为：'+maxCount;
+        }
+        console.log(getMaxCount5(str));
+    </script>
+</body>
+</html>
