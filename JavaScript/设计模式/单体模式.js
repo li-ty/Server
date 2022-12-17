@@ -1,5 +1,5 @@
 //简单单体
-let Singleton = {};
+let singleton = {};
 
 //闭包单体   闭包主要目的：保护数据
 let closureSingleton = (function(){
@@ -64,4 +64,31 @@ let branchSingleton = (function(){
 })();
 
 
-console.log(branchSingleton.attr);
+//console.log(branchSingleton.attr);
+
+//其他写法
+var Singleton = (function(){
+    var instance;
+    function User(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    return function(name, age){
+        if(!instance){
+            instance = new User(name, age)
+        }
+        return instance;
+    }
+})()
+
+//es6写法
+class Singleton{
+    constructor(name, age){
+        if(!Singleton.instance){
+            this.name = name;
+            this.age = age;
+            Singleton.instance = this;
+        }
+        return Singleton.instance;
+    }
+}
