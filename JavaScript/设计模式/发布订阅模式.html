@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class PubSub {
+            constructor() {
+                this.handles = {};
+            }
+
+            on(event, handle) {
+                if (!this.handles[event]) {
+                    this.handles[event] = [handle];
+                } else {
+                    this.handles[event].push(handle);
+                }
+            }
+
+            send(event, msg) {
+                if (this.handles[event]) {
+                    this.handles[event].forEach(fn => {
+                        fn(msg);
+                    })
+                } else {
+                    console.error(event + "事件未注册")
+                }
+            }
+
+            off(event, handle) {
+                if (!this.handles[event]) return;
+                for (let i = 0; i < this.handles[event].length; i++) {
+                    if (this.handles[event][i] == handle) this.handles[event].splice(i, 1);
+                }
+            }
+
+        }
+        let ps = new PubSub();
+        let fn1 = function (msg1) {
+            console.log("fn1", msg1)
+        }
+        let fn2 = function (msg2) {
+            console.log("fn2", msg2)
+        }
+
+        ps.on("init", fn1);
+        ps.on("init", fn2);
+
+        ps.send("init", "XXXX");
+
+
+        ps.on("test", fn2);
+        ps.on("test", fn1);
+        ps.send("test", "CCCC");
+
+        ps.off("xxx", fn1)
+
+        ps.on("hh", function (data) {
+            console.log("HH" + data)
+        })
+
+        ps.send("hh", "KOKOKO")
+
+        console.log(ps)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

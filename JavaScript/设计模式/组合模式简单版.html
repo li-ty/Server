@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+        // var Folder = function(name){
+        //     this.name = name;
+        //     this.list = [];
+        // }
+
+        // Folder.prototype.add = function(ele){
+        //     this.list.push(ele);
+        // }
+
+        // Folder.prototype.scan = function(){
+        //     console.log("文件夹：", this.name)
+        //     for(let i = 0; i < this.list.length; i++){
+        //         this.list[i].scan()
+        //     }
+        // }
+
+
+        // var File = function(name){
+        //     this.name = name;
+        // }
+        // File.prototype.scan = function(){
+        //     console.log("文件名：", this.name)
+        // }
+
+
+        class Folder{
+            constructor(name){
+                this.name = name
+                this.list = [];
+            }
+            add(ele) {
+                this.list.push(ele);
+            }
+            scan(){
+                console.log("文件夹：", this.name)
+                for(let item of this.list){
+                    item.scan();
+                }
+            }
+        }
+
+        class File{
+            constructor(name){
+                this.name = name
+            }
+            scan(){
+                console.log("文件：", this.name)
+            }
+        }
+
+        var root = new Folder("Root");
+        var folder = new Folder("JS");
+        folder.add(new File("CSS.CSS"))
+        folder.add(new Folder("ES6"))
+        root.add(folder);
+        root.scan();
+
+    </script>
+</body>
+</html>
