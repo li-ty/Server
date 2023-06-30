@@ -16,7 +16,3 @@
 | kill -9 端口号 | 杀死进程 |
 
 
-## 计算机课程体系
-![1668696987539](https://user-images.githubusercontent.com/26899221/202480138-46df46e7-7f08-463d-be70-e4cd6f00949c.jpg)
-
-
