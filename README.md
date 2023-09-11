@@ -7,7 +7,7 @@
 | netstat -ano \| findstr "端口号" | 查特定端口 |
 | taskkill /f /t /im "进程id或者进程名称" | 杀死进程 |
 | sc create fastgithub binPath= "C:\Program Files\fastgithub\fastgithub.exe" | 将exe注册成windows服务（需要管理员身份） |
-| sc create fastgithub | 删除服务 |
+| sc delete fastgithub | 删除服务 |
 | telnet [ip] [port] | 检查目标计算机端口连通性 |
 | ping [ip] | 检查目标计算机连通性 |
 ### Linux命令
